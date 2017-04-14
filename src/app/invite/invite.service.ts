@@ -7,7 +7,7 @@ import  'rxjs/Rx'
 export class InviteService {
   invite = {};
    //url = 'http://localhost:5000/api'
-   url = 'https://party-shopper-server.herokuapp.com/api'
+   url = 'https://partyshop-api.herokuapp.com/api'
   
   constructor(private http: Http) { 
     
