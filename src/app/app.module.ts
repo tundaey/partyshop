@@ -22,7 +22,7 @@ import { FormDataService } from './forms/form.service'
 import { FormWizardModule } from 'angular2-wizard';
 import { TagInputModule } from 'ng2-tag-input';
 import { MyDatePickerModule } from 'mydatepicker';
-import {NglModule} from 'ng-lightning/ng-lightning';
+
 
 
 import { PaginateComponent } from './paginate/paginate.component';

@@ -3,7 +3,7 @@ import { Router} from '@angular/router';
 
 import { ProductService } from '../../product/product.service'
 import { FormDataService } from '../form.service';
-import {SpinnerComponent} from '../../spinner/spinner.component'; 
+
 
 @Component({
   selector: 'app-gifts',
