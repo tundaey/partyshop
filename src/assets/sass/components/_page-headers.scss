@@ -1,0 +1,218 @@
+.ct-page-header {
+  background-size: cover;
+  min-height: $page-header-height;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+
+  * {
+    z-index: 1;
+  }
+
+  &:not(.ct-page-header--big) {
+    display: table;
+    width  : 100%;
+
+    & > .ct-page-header__inner, > .inner {
+      display: table-cell;
+      width: 100%;
+      vertical-align: bottom;
+    }
+
+    .browser-mozilla & {
+      display: flex;
+      align-items: center;
+    }
+
+    .browser-mozilla & > .ct-page-header__inner, .browser-mozilla & > .inner {
+      display: block;
+      flex: flex-end;
+    }
+
+    @include md-max {
+      min-height: 0;
+
+      .ct-page-header__svg {
+        display: none;
+      }
+
+      .ct-page-header__inner {
+        padding-top: $mobile-navbar-height * 2;
+        padding-bottom: 0;
+        background: white;
+        display: block;
+      }
+
+      .ct-page-header__title {
+        padding-top: 0;
+        padding-bottom: 0;
+        position: static;
+      }
+
+    }
+  }
+
+  .mobile &,
+  .tablet & {
+    background: $page-header-bg-mobile no-repeat scroll center;
+  }
+
+  .desktop & {
+    background: $page-header-bg no-repeat fixed center top;
+  }
+
+  @include md-min {
+    padding-top: ceil($topbar-height + $midbar-height + $navbar-height + $navbar-offset-top + $menu-offset);
+  }
+
+  @media only screen and (min-height: 800px) and (min-width: $screen-md) {
+    .ct-page-header__title {
+      top: -20px
+    }
+  }
+
+
+  //** Page Header Mask
+
+  &:after {
+    content: '';
+    @include full-absolute;
+    background: #000;
+    opacity: $page-header-mask-opacity;
+    z-index: 0;
+  }
+
+  @include md-max {
+    &:not(.ct-page-header--big):after {
+      display: none;
+    }
+  }
+
+
+
+  //** SVG Bottom Skew
+  &__svg {
+    position: absolute;
+    width: 100%;
+    height: $page-header-skew-height;
+    min-height: 125px;
+    bottom: -1px;
+    left: 0;
+    fill: $body-bg;
+    stroke: $body-bg;
+
+    .portrait & {
+      height: $page-header-skew-height;
+    }
+    .mobile.portrait & {
+      height: $page-header-skew-height * 1.15;
+    }
+  }
+
+  //** Making Space Above Button
+  p {
+    +.btn {
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    text-align: right;
+    color: $motive;
+    position: relative;
+    font-size: 30px;
+    margin-bottom: 0;
+    padding-top: $page-header-inner-padding-vertical;
+
+    b {
+      display: inline;
+      font-weight: 400;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba($accent, 0.05);
+    }
+
+    @include md-min {
+      font-size: 35px;
+      padding-bottom: 30px;
+    }
+  }
+  //** Title Variation for Container Fluid
+  .container-fluid .ct-page-header__title {
+    width: 81%;
+    display: inline-block;
+    float: right;
+  }
+
+
+  //** Height Variation
+  &--big {
+    margin-bottom: 0;
+
+
+    @media only screen and (min-height: 800px) {
+      padding-bottom: 100px;
+    }
+
+    @include md-max {
+      padding-top: ceil($mobile-navbar-height);
+    }
+
+    .desktop:not(.portrait) & {
+      @include md-min {
+        min-height: $page_header-big-height;
+      }
+    }
+
+    .ct-page-header__svg {
+      bottom: 0;
+    }
+
+    .ct-page-header__svg {
+      height: $page-header-big-skew-height;
+
+      .portrait & {
+        height: $page-header-big-skew-height * 0.75;
+      }
+    }
+
+    .ct-page-header__inner {
+      padding: ceil($page-header-inner-padding-vertical * 0.5) ceil($page-header-inner-padding-horizonal * 0.5) ceil($main-slider-offset-mobile * 1.5) ceil($page-header-inner-padding-horizonal * 0.5);
+
+      @media only screen and (min-height: 800px) and (min-width: $screen-md) {
+        padding: $page-header-inner-padding-vertical $page-header-inner-padding-horizonal ($page-header-inner-padding-vertical * 1.25);
+      }
+
+      @media only screen and (min-height: 800px) and (max-width: $screen-md-max) {
+        padding: ceil($page-header-inner-padding-vertical * 0.5) ceil($page-header-inner-padding-horizonal * 0.5) $main-slider-offset;
+      }
+
+      h1, .h1,
+      p {
+        display: inline-block;
+        max-width: 720px;
+      }
+    }
+  }
+}
+
+//** Firefox Fix
+.browser-mozilla .ct-page-header--big {
+  display: flex;
+  align-items: center;
+
+  .ct-page-header__inner {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}

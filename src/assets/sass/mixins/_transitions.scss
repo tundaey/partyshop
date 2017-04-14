@@ -1,0 +1,19 @@
+//
+// Transitions
+// --------------------------------------------------
+
+@mixin t-bgc {
+  transition: background-color $transition-duration $transition-timing-function;
+}
+
+@mixin t-col {
+  transition: color $transition-duration $transition-timing-function;
+}
+
+@mixin t-op {
+  transition: opacity $transition-duration $transition-timing-function;
+}
+
+@mixin t-all {
+  transition: all $transition-duration $transition-timing-function;
+}

@@ -1,0 +1,248 @@
+//
+// Buttons
+// --------------------------------------------------
+
+//** Button Basic Styling
+.btn {
+  padding: floor($btn-padding-vertical * 0.8) floor($btn-padding-horizontal * 0.8);
+  min-width: ceil($btn-width * 0.85);
+  font-size: ceil($btn-font-size * 0.85);
+  border-width: $btn-border-width;
+  box-shadow: none !important;
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    @include full-absolute;
+    top: floor($btn-padding-vertical * 0.8);
+  }
+
+  @include sm-min {
+    font-size: $btn-font-size;
+    min-width: $btn-width;
+    padding: $btn-padding-vertical $btn-padding-horizontal;
+
+    &:after {
+      top: $btn-padding-vertical
+    }
+  }
+}
+
+//** Size Variations
+.btn-lg {
+    font-size: $btn-font-size;
+    min-width: $btn-width;
+    padding: $btn-padding-vertical $btn-padding-horizontal;
+
+    &:after {
+      top: $btn-padding-vertical;
+    }
+
+  @include sm-min {
+    padding: floor($btn-padding-vertical * 1.5) floor($btn-padding-horizontal * 1.5);
+    min-width: ceil($btn-width * 1.15);
+    font-size: ceil($btn-font-size * 1.15);
+
+    &:after {
+      top: floor($btn-padding-vertical * 1.5);
+    }
+  }
+}
+.btn-sm {
+  padding: floor($btn-padding-vertical * 0.60) floor($btn-padding-horizontal * 0.60);
+  min-width: ceil($btn-width * 0.77);
+  font-size: ceil($btn-font-size * 0.75);
+
+  &:after {
+    top: floor($btn-padding-vertical * 0.60);
+  }
+
+  @include sm-min {
+    padding: floor($btn-padding-vertical * 0.75) floor($btn-padding-horizontal * 0.75);
+    min-width: ceil($btn-width * 0.90);
+    font-size: ceil($btn-font-size * 0.9);
+
+    &:after {
+      top: floor($btn-padding-vertical * 0.75);
+    }
+  }
+}
+.btn-xs {
+  padding: floor($btn-padding-vertical * 0.4) floor($btn-padding-horizontal * 0.4);
+  min-width: ceil($btn-width * 0.565);
+  font-size: ceil($btn-font-size * 0.6);
+
+  &:after {
+    top: floor($btn-padding-vertical * 0.4);
+  }
+
+  @include sm-min {
+    padding: floor($btn-padding-vertical * 0.55) floor($btn-padding-horizontal * 0.55);
+    min-width: ceil($btn-width * 0.765);
+    font-size: ceil($btn-font-size * 0.8);
+
+    &:after {
+      top: floor($btn-padding-vertical * 0.55);
+    }
+  }
+}
+
+
+//** Filled Button Styles
+.btn-motive {
+  @include button-variant($body-bg, $motive, $motive);
+}
+.btn-gray {
+  @include button-variant($btn-gray-color, $btn-gray-bg, $btn-gray-border);
+}
+.btn-accent {
+  @include button-variant($body-bg, $accent, $accent);
+}
+.btn-default {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+.btn-success {
+  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+.btn-info {
+  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+.btn-warning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+.btn-danger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+//** Open Button Styles
+.btn-motive-o {
+  @include button-o-variant($motive, $motive);
+}
+.btn-gray-o {
+  @include button-o-variant($btn-gray-border, $motive);
+}
+.btn-accent-o {
+  @include button-o-variant($accent, $accent);
+}
+.btn-default-o {
+  @include button-o-variant($btn-default-border, $motive);
+}
+.btn-primary-o {
+  @include button-o-variant($btn-primary-bg, $btn-primary-bg);
+}
+.btn-success-o {
+  @include button-o-variant($btn-success-bg, $btn-success-bg);
+}
+.btn-info-o {
+  @include button-o-variant($btn-info-bg, $btn-info-bg);
+}
+.btn-warning-o {
+  @include button-o-variant($btn-warning-bg, $btn-warning-bg);
+}
+.btn-danger-o {
+  @include button-o-variant($btn-danger-bg, $btn-danger-bg);
+}
+
+.btn-default-o--type2 {
+  @include button-o-variant($btn-default-border, $btn-default-border);
+
+  &:hover, &.hover,
+  &:active, &.active,
+  &:hover:active {
+    color: $motive;
+  }
+}
+
+
+//== Button Arrows
+//
+//## Used in Pagination and Slider Arrows
+
+.btn-arrow {
+    background: transparent;
+    font-size: $font-size-base;
+    padding: 0;
+    color: $accent;
+    @include xs-min {
+      font-size: 18px;
+    }
+
+    &__text {
+      display: inline-block;
+      line-height:1;
+    }
+
+    &__svg {
+      fill: $accent;
+      transition: fill, $transition-duration, $transition-timing-function;
+      position: relative;
+      top: 5px;
+    }
+
+    &:hover {
+      color: $motive;
+      .btn-arrow__svg {
+        fill: $motive;
+      }
+    }
+
+
+  &-left {
+    float: left;
+
+    .btn-arrow__svg + .btn-arrow__text {
+      margin-left: 12px;
+    }
+  }
+
+  &-right {
+    float: right;
+
+    .btn-arrow__svg {
+      transform: scale(-1,1)
+    }
+
+    .btn-arrow__text + .btn-arrow__svg {
+      margin-left: 12px;
+    }
+  }
+}
+
+
+//== Scroll Up
+//
+//##
+
+.ct-btn--scroll-up {
+  position: fixed;
+  bottom: 0;
+  border-radius: 0 50% 0 0;
+  border: none;
+  background: $motive;
+  @include z-depth-1-half;
+  color: white;
+  padding: $btn-scroll-up-padding;
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  @include t-all;
+  z-index: 99;
+  #{$btn-scroll-up-position}: -45px;
+
+  &:hover {
+    background: darken($motive, 10%);
+
+    &:active {
+      background: darken($motive, 5%);
+      box-shadow: 0;
+    }
+  }
+
+  &.visible {
+    bottom: 0;
+    #{$btn-scroll-up-position}: 0;
+  }
+}

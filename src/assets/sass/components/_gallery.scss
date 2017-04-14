@@ -1,0 +1,139 @@
+//** Gallery Container
+.ct-isotope-gallery {
+  margin-left: -$grid-gutter-width/2;
+  margin-right: -$grid-gutter-width/2;
+  padding-bottom: 30px;
+
+  @include sm-min {
+    padding-bottom: 45px;
+  }
+}
+
+//** Gallery Filtering
+.ct-isotope-filtering {
+  text-align: center;
+  padding: 15px 0 25px;
+
+  .btn {
+    margin: $grid-gutter-width/3;
+  }
+
+  @include sm-min {
+    padding: 20px 0 40px;
+  }
+}
+
+
+//== Gallery Item
+//
+//## Basic styles included in boxes.scss inside "Image Boxes" section
+
+.ct-isotope-item {
+  width: 100%;
+  padding: $grid-gutter-width/2;
+
+  .btn {
+    margin: 5px;
+  }
+
+  &__header {
+    font-weight: 700;
+  }
+
+  &__header, &__content {
+    padding: 0 $grid-gutter-width;
+    margin-bottom: $grid-gutter-width;
+  }
+
+  &__media {
+    height: auto;
+    padding-top: 100%;
+  }
+
+  &__hover {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &__content {
+    top: 0;
+    opacity: 1;
+  }
+
+  // .mobile &,
+  // .tablet & {
+  //
+  //   .ct-isotope-item__hover {
+  //     height: 60px;
+  //     top: auto;
+  //     bottom: 0;
+  //
+  //     .btn {
+  //       min-width: 0;
+  //       padding-left: 12px;
+  //       padding-right: 12px;
+  //     }
+  //   }
+  //
+  //   &.ct-isotope-item--with-content {
+  //
+  //     .ct-isotope-item__media {
+  //       margin-bottom: 110%;
+  //     }
+  //   }
+  // }
+}
+
+//** Gallery Item Loops
+@each $igb-name, $igb-value in $isotope-grid-breakpoints {
+
+  @media only screen and (min-width: $igb-value) {
+
+    .ct-isotope-gallery--#{$igb-name}-1 {
+      .ct-isotope-item { width: 100% }
+    }
+
+    .ct-isotope-gallery--#{$igb-name}-2 {
+      .ct-isotope-item { width: 50% }
+      .ct-isotope-item--big { width: 100% }
+    }
+
+    .ct-isotope-gallery--#{$igb-name}-3 {
+      .ct-isotope-item { width: 33.33333% }
+      .ct-isotope-item--big { width: 66.66666% }
+    }
+
+    .ct-isotope-gallery--#{$igb-name}-4 {
+      .ct-isotope-item { width: 25% }
+      .ct-isotope-item--big { width: 50% }
+    }
+
+    .ct-isotope-gallery--#{$igb-name}-5 {
+      .ct-isotope-item { width: 20% }
+      .ct-isotope-item--big { width: 40% }
+    }
+
+
+  }
+}
+
+
+//** Isotope Container
+.ct-isotope-container {
+  text-align: center;
+}
+
+
+//** Load More Button
+#load-more {
+  margin-bottom: 55px;
+
+  @include sm-min {
+    margin-bottom: 88px;
+  }
+}

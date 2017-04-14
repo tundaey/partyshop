@@ -1,0 +1,53 @@
+<section class="container text-center">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <h2 class="ct-section-header">My Account</h2>
+  <div class="row">
+      <div class="col-md-9 ct-blog__content">
+          <article class="ct-blog-post ct-blog-post--image">
+              <div class="ct-blog-post__media">
+                  <img src="{{profile.picture}}" alt="Profile Picture" />
+              </div>
+              <div class="ct-blog-post__body">
+                   <h3 class="h4 ct-blog-post__title">Parent</h3>
+                  <div class="ct-blog-post__date"><span class="ct-blog-post__day">Tunde Ganiy</span>
+                  </div>
+                  <div class="ct-blog-post__description">      </div>
+                 
+                  <div class="ct-blog-post__content">
+                      <div class="form-group">
+                          <input type="email" formControlName="email" placeholder="Email" id="name" name="field" class="form-control" />                          
+                      </div>
+                      <div class="form-group">
+                          <input type="text" formControlName="name" placeholder="Name" id="name" name="field" required="required" class="form-control" />                         
+                      </div>
+                  </div>
+              </div>
+          </article>          
+      </div>
+      <div class="col-md-7 col-md-offset-2">
+         <div class="widget widget_recent_entries">
+              <div class="widget-inner">
+                  <h4 class="widget-title">Children</h4>
+                  <ul formArrayName="children">
+                      <li *ngFor="let child of myForm.controls['children'].controls; let i = index" >
+                          <div formGroupName="{{i}}">
+                            <div class="form-group">
+                                <h3 class="h4 ct-blog-post__title">Name</h3>  
+                                <input formControlName="name" type="text" placeholder="Name" id="name" name="field" class="form-control" />                          
+                            </div>
+                            <div class="form-group">
+                                <h3 class="h4 ct-blog-post__title">Date of Birth</h3>
+                                <my-date-picker formControlName="dob" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)" [placeholder]="placeholder"></my-date-picker>
+                            </div>
+                          </div>
+                          
+                      </li>
+                  </ul>
+              </div>
+            </div>
+            <button type="button" class="btn btn-gray-o" (click)="addChild()"> Add Child</button>
+            <button class="btn btn-gray-o">Save</button>
+      </div>
+  </div>
+  </form>
+</section>

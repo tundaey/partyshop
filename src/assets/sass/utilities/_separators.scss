@@ -1,0 +1,10 @@
+//** Divider
+.divider {
+  height: 2px;
+  width: 100%;
+  display: block;
+  background: white;
+  opacity: 0.1;
+  margin-bottom: 10px;
+  @extend .clearfix;
+}

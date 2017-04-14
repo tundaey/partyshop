@@ -1,0 +1,120 @@
+html, body, img, figure {
+  max-width: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  -ms-overflow-style: scrollbar;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  overflow-x: hidden;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a {
+  transition: all $transition-duration $transition-timing-function;
+}
+
+button, .btn {
+  transition: background-color $transition-duration $transition-timing-function;
+}
+
+* {
+  outline: none !important;
+}
+
+ul, address, ol, dl {
+  margin-bottom: 0;
+}
+
+[data-background], [data-parallax] {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+[data-parallax] {
+  background-position: center top;
+  background-attachment: fixed;
+  .mobile &, .tablet & {
+    background-attachment: scroll;
+    background-position: center;
+  }
+}
+
+.media-object {
+  max-width: none;
+}
+
+.gm-style * {
+  touch-action: inherit !important;
+}
+
+.ct-slick {
+  .slick-track, .slick-list, .item, .slick-item {
+    min-height: inherit;
+  }
+}
+
+@include sm-min {
+  .dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
+
+.ct-page-wrapper {
+  position: relative;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+//== HTML Font Sizes
+//
+//## Used for REM calculations
+
+
+html {
+  font-size: 50%;
+}
+
+@include sm-min {
+  html {
+    font-size: 55.5555%
+  }
+}
+
+@include md-min {
+  html {
+    font-size: 62.5%
+  }
+}
+
+//== Browser Upgrade
+//
+//##
+
+.browserupgrade {
+    background: #ccc;
+    color: #000;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    text-align: center;
+    font-size: 20px;
+
+    a {
+      color: #4285f4 !important;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+}

@@ -1,0 +1,89 @@
+.ct-blog__sidebar {
+  .ct-sidebar__inner {
+    padding-bottom: $sidebar-mobile-width
+  }
+}
+
+.ct-sidebar {
+  position: relative;
+  right: 0;
+}
+
+.ct-sidebar__mobile-toggle {
+  display: none;
+  z-index: 1010;
+  background: $motive;
+  color: $body-bg;
+  border: 2px solid $body-bg;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  font-size: 15px;
+  padding: 7px 15px 7px 8px;
+  @include t-all;
+  &:before {
+    content: '\f053';
+    font-family: 'FontAwesome';
+  }
+}
+
+@include md-max {
+  .mobile .ct-sidebar, .tablet .ct-sidebar {
+    position: fixed;
+    top: 0;
+    right: -($sidebar-mobile-width);
+    width: $sidebar-mobile-width + 25px;
+    height: 100%;
+    z-index: 1010;
+    @include t-all;
+    &__inner {
+      background-color: $body-bg;
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $sidebar-mobile-width;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    &__mobile-toggle {
+      display: block;
+      position: fixed;
+      top: 27%;
+      right: 0;
+      @include xs-min {
+        top: 20%;
+      }
+    }
+  }
+}
+
+.sidebar-open {
+  overflow: hidden;
+
+  .ct-sidebar {
+    right: 0;
+  }
+
+  .ct-sidebar__mobile-toggle {
+    right: $sidebar-mobile-width;
+    background: $body-bg;
+    color: $motive;
+    padding-right: 8px;
+    margin-right: -1px;
+    &:before {
+      content: '\f054';
+    }
+  }
+
+  .ct-page-wrapper {
+    overflow: hidden;
+
+    &:after {
+      height: 100%;
+      width: 100%;
+      opacity: $mobile-menu-content-mask-opacity;
+      z-index: 1000
+    }
+  }
+}

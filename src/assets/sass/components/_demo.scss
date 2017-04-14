@@ -1,0 +1,39 @@
+.boxed {
+
+  .ct-page-wrapper {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $body-bg;
+    @include z-depth-1;
+
+    @include sm-min {
+      max-width: $container-sm + $grid-gutter-width * 2;
+    }
+
+    @include md-min {
+      max-width: $container-md + $grid-gutter-width * 2;
+    }
+
+    @include lg-min {
+      max-width: $container-lg + $grid-gutter-width * 2;
+    }
+  }
+}
+
+.ptn1, .ptn2, .ptn3, .ptn4, .ptn5, .ptn6, .ptn7, .ptn8, .ptn9, .ptn10, .ptn11, .ptn12, .ptn13{
+  background-attachment: fixed !important;
+}
+
+.ptn1{ background: url("../images/bg_pattern_01.png") repeat; }
+.ptn2{ background: url("../images/bg_pattern_02.png") repeat; }
+.ptn3{ background: url("../images/bg_pattern_03.png") repeat; }
+.ptn4{ background: url("../images/bg_pattern_04.jpg") repeat; }
+.ptn5{ background: url("../images/bg_pattern_05.jpg") repeat; }
+.ptn6{ background: url("../images/bg_pattern_06.jpg") repeat; }
+.ptn7{ background: url("../images/bg_pattern_07.jpg") repeat; }
+.ptn8{ background: url("../images/bg_pattern_08.jpg") repeat; }
+.ptn9{ background: url("../images/bg_pattern_09.png") repeat; }
+.ptn10{ background: url("../images/bg_pattern_10.png") repeat; }
+.ptn11{ background: url("../images/bg_pattern_11.jpg") repeat; }
+.ptn12{ background: url("../images/bg_pattern_12.png") repeat; }

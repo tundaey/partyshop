@@ -1,0 +1,123 @@
+.dropdown {
+
+  &:after {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    bottom: 0;
+    left: -10px;
+    position: absolute;
+    content: '';
+    border-bottom-right-radius: 100%;
+    box-shadow: 50px 0px 0px 50px white;
+    clip: rect(0px, 60px, 50px, 0px);
+    display: block;
+    opacity: 0;
+  }
+
+  &:hover {
+    background: white;
+    border-radius: 15px 15px 0 0;
+
+    .navbar-default .navbar-nav > & > a {
+      color: $navbar-default-link-hover-color;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.navbar-nav > li > .dropdown-menu,
+.dropdown-menu {
+  border: none;
+  border-radius: 15px 0 15px 15px;
+
+  > li > a {
+    padding: $grid-gutter-width/3 $grid-gutter-width;
+    &:hover {
+      background: transparent;
+      text-decoration: underline;
+    }
+  }
+}
+
+.submenu {
+  position: relative;
+
+  i {
+    padding-left: 5px;
+    font-size: $font-size-base * 0.9;
+    color: lighten($text-color, 5%);
+  }
+
+  &:after {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    top: -7px;
+    right: -9px;
+    position: absolute;
+    content: '';
+    border-bottom-right-radius: 100%;
+    box-shadow: -25px 0px 0px 50px white;
+    clip: rect(0px, 60px, 50px, 0px);
+    display: block;
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  &:before {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    right: (2px + $grid-gutter-width);
+    position: absolute;
+    content: '';
+    border-bottom-right-radius: 100%;
+    box-shadow: -25px 0px 0px 50px white;
+    clip: rect(0px, 60px, 50px, 0px);
+    display: block;
+    transform: rotate(-90deg);
+    bottom: -15px;
+    opacity: 0;
+  }
+
+  > .dropdown-menu {
+    top: 0;
+    left: calc(100% - #{$grid-gutter-width + 2});
+    border-radius: 0 15px 15px 15px;
+
+    a {
+      @include overflow-ellipsis;
+    }
+  }
+
+
+  &:hover {
+
+    &:before, &:after {
+      opacity: 1;
+    }
+
+    > .dropdown-menu {
+      padding-top: 7px;
+      display: block;
+      box-shadow: 10px 6px 12px rgba(0,0,0,.175);
+    }
+  }
+}
+
+li:last-child.submenu {
+  border-radius: 0 0 0 15px;
+  // margin-bottom: -5px;
+
+  &:hover {
+    background: white;
+  }
+
+  > a {
+    padding-bottom: $grid-gutter-width/3 + 5px;
+  }
+}

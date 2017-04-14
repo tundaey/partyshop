@@ -1,0 +1,114 @@
+/*------------------------------------------------------------------
+Project:	My Confetti HTML theme
+Version:	1.0
+Last change:	12.11.2015
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Table of contents]
+
+1.  Variables
+2.  Mixins
+3.  Animate
+4.  Slick
+5.  Selectize
+6.  Magnific Popup
+7.  nstSlider
+8.  Scaffolding
+9.  Utilities
+10. Buttons
+11. Typography
+12. Form
+13. Address
+14. Socials
+15. Pagination
+16. Boxes
+17. Sidebar
+18. Blog
+19. Newsletter
+20. Shop
+21. Widgets
+22. Sliders
+23. Navbar
+24. Dropdown
+25. Footer
+26. Page Headers
+27. Mobile Menu
+28. Coming Soon Page
+29. Gallery
+30. Accordion
+31. 404 Page
+32. Map
+33. Twitter
+34. Demo Styles
+
+-------------------------------------------------------------------*/
+
+
+
+//
+// Includes
+// --------------------------------------------------
+
+//** Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700,900);
+
+//** Mixins and Variables
+@import 'variables.scss';
+@import '_bootstrap/bootstrap/mixins';
+@import 'mixins';
+
+
+//== Plugins
+//
+//##
+
+//** Animate CSS
+@import '_animate-css/animate';
+//** Slick
+@import '../plugins/slick/slick';
+@import '../plugins/slick/slick-theme';
+//** Selectize
+@import '../plugins/selectize/selectize.bootstrap3';
+//** Magnific Popup
+@import "../plugins/magnific-popup/main";
+//** Bootstrap Slider
+@import "../plugins/nstSlider/jquery.nstSlider";
+
+//** Global
+@import 'global';
+@import 'utilities';
+
+
+//== Components
+//
+//##
+
+//** Small Elements
+@import 'components/buttons';
+@import 'components/typography';
+@import 'components/form';
+@import 'components/address';
+@import 'components/socials';
+@import 'components/pagination';
+
+//** Page Elements
+@import 'components/boxes';
+@import 'components/sidebar';
+@import 'components/blog';
+@import 'components/newsletter';
+@import 'components/shop';
+@import 'components/widgets';
+@import 'components/sliders';
+@import 'components/navbar';
+@import 'components/dropdown';
+@import 'components/footer';
+@import 'components/page-headers';
+@import 'components/mobile-menu';
+@import 'components/coming-soon';
+@import 'components/gallery';
+@import "components/accordion";
+@import "components/404";
+@import "components/map";
+@import "components/twitter";
+@import "components/demo";

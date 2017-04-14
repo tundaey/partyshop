@@ -1,0 +1,42 @@
+
+<nav class="ct-menu" style="color: black">            
+    <div class="navbar navbar-default navbar-fixed" style="background-color: black">
+        <a *ngIf="auth.isLogin" class="btn btn-motive pull-right" (click)="logOut()">Logout</a>
+        <a *ngIf="!auth.isLogin" class="btn btn-motive pull-right" (click)="login()">
+          <i class="fa fa-facebook" style="padding-right: 20px"></i>
+           Logheaza-te cu Facebook</a>
+        <ul class="nav navbar-nav navbar-right" >
+            <!--<li routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/']" > Home</a> </li>-->
+            <li routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/invite/create']" >Creaza Invitatia</a> </li>  
+            <li *ngIf="auth.isLogin" routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/profile']" >Contul meu</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+
+<!-- *** Mobile Navbar *** -->
+    <div class="ct-mobile-navbar">
+        <button class="btn btn-default ct-mobile-navbar__toggle">Menu
+        </button>
+    </div>
+    <!-- *** Mobile Menu *** -->
+    <div class="ct-mobile-menu">
+        <div class="ct-mobile-menu__inner">
+            <div class="ct-mobile-menu__content">
+                <ul class="ct-mobile-menu__nav list-unstyled">
+                    <!--<li routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/']" >Home</a> </li>-->
+                    <li routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/invite/create']" >Creaza Invitatia</a> </li>  
+                    <li *ngIf="auth.isLogin" routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/profile']" >>Contul meu</a>
+                    </li>
+                </ul>
+                <div role="separator" class="divider"></div>
+                 <a *ngIf="!auth.isLogin" class="btn btn-motive pull-right" (click)="login()"><i class="fa fa-facebook" style="padding-right: 20px"></i>
+           Logheaza-te cu Facebook</a>
+            <a *ngIf="auth.isLogin" class="btn btn-motive pull-right" (click)="logOut()">Logout</a>
+                
+            </div>
+        </div>
+    </div>

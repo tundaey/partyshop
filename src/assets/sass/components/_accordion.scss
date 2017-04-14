@@ -1,0 +1,22 @@
+//** Panel Variations
+.panel-motive {
+  @include accordion-variant($panel-motive-border, $panel-motive-text, $panel-motive-heading-bg, $panel-motive-border);
+}
+.panel-default {
+  @include accordion-variant($panel-default-border, $panel-default-text, $panel-default-heading-bg, $panel-default-border);
+}
+.panel-primary {
+  @include accordion-variant($panel-primary-border, $panel-primary-text, $panel-primary-heading-bg, $panel-primary-border);
+}
+.panel-success {
+  @include accordion-variant($panel-success-border, $panel-success-text, $panel-success-heading-bg, $panel-success-border);
+}
+.panel-info {
+  @include accordion-variant($panel-info-border, $panel-info-text, $panel-info-heading-bg, $panel-info-border);
+}
+.panel-warning {
+  @include accordion-variant($panel-warning-border, $panel-warning-text, $panel-warning-heading-bg, $panel-warning-border);
+}
+.panel-danger {
+  @include accordion-variant($panel-danger-border, $panel-danger-text, $panel-danger-heading-bg, $panel-danger-border);
+}

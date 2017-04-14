@@ -1,0 +1,110 @@
+.ct-coming-soon {
+
+
+  &__header {
+    padding: 30px 0;
+    min-height: 61vh;
+  }
+
+  .ct-socials__item {
+    color: #77848E;
+
+    &:hover {
+      color: #77848E;
+    }
+  }
+
+  &__logo {
+    margin-top: 50px;
+  }
+
+
+  &__title {
+    color: white;
+    font-size: 24px;
+    font-style: italic;
+    padding-top: 20px;
+  }
+
+
+  .ct-newsletter {
+
+    &__form {
+      @include sm-min {
+        max-width: 760px;
+        display: inline-block;
+      }
+    }
+
+    &__label,
+    &__subscribed {
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    &__label {
+      margin-bottom: 30px;
+      @include t-all;
+    }
+
+    &__input {
+      border: 1px solid lighten($input-color, 20%);
+      color: $input-color;
+
+      &::placeholder {
+        color: $input-color;
+      }
+    }
+
+    &__form.newsletter-subscribed {
+
+      label {
+        margin-bottom: 0;
+        max-height: 0;
+      }
+
+      input {
+        border-left: none;
+        border-right: none;
+      }
+    }
+  }
+
+
+  &__main {
+    padding: 30px 0;
+    min-height: calc(39vh - 80px);
+  }
+
+
+  &__copyright {
+    color: #bebebe;
+    font-size: $font-size-base * 0.9;
+  }
+
+
+  &__footer {
+    min-height: 80px;
+    border-top: 2px solid $gray-light;
+
+    &-column-right {
+
+      @include sm-min {
+
+        text-align: right;
+      }
+    }
+
+    @include sm-max {
+      text-align: center;
+      padding: 20px 0;
+
+      &-column-right {
+        padding-top: 5px;
+      }
+    }
+  }
+
+
+
+}

@@ -1,0 +1,152 @@
+//== Shop Filters
+//
+//##
+
+.ct-shop-filters {
+
+  @include xs-min {
+    display: table;
+
+
+    > * {
+      display: table-cell;
+      vertical-align: middle;
+      width: auto;
+    }
+
+    .selectize-control {
+      min-width: floor(172px + $grid-gutter-width);
+      padding-right: $grid-gutter-width;
+    }
+  }
+
+  @include xs-max {
+    text-align: center;
+
+    .form-control {
+      text-align: left;
+    }
+
+    .btn {
+      margin-top: 15px;
+    }
+  }
+}
+
+
+.ct-party-detailed {
+  background: $party-detailed-bg;
+  border-radius: $party-detailed-border-radius;
+  padding: ceil($party-detailed-padding * 0.55);
+
+  &__container {
+    position: relative;
+  }
+
+  &__title {
+    font-weight: 700;
+    color: $party-detailed-title-color;
+  }
+
+  &__price {
+    font-size: floor($font-size-base * 1.5);
+    font-weight: 700;
+    color: $party-detailed-price-color;
+    padding: 5px 0 10px;
+  }
+
+  &__price-old {
+    color: #c7c7c7;
+    text-decoration: line-through;
+    padding-right: 5px;
+  }
+
+  .btn {
+    margin-top: $grid-gutter-width;
+  }
+
+  &__time {
+    border-radius: 50%;
+    background: $party-detailed-date-bg;
+    color: $party-detailed-date-color;
+    width: 75px;
+    height: 75px;
+    padding: 12px 10px 10px;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  &__number {
+    font-size: $font-size-base * 2;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  &__media {
+    line-height: 1;
+  }
+
+  &__media {
+    position: relative;
+    padding-bottom: $grid-gutter-width;
+
+    img {
+      width: 100%;
+      border-radius: $border-radius-small;
+    }
+  }
+
+  + .mfp-close {
+    color: $party-detailed-close-color;
+    font-size: 40px;
+    top: -9px;
+    right: -7px + $grid-gutter-width/2;
+    font-weight: 400;
+    font-family: $font-family-base;
+
+    &:hover {
+      color: darken($party-detailed-close-color, 60%);
+
+      &:active {
+        color: darken($party-detailed-close-color, 70%);
+      }
+    }
+  }
+
+
+  @include xs-min {
+
+    &.ct-party-detailed--popup {
+      padding: $party-detailed-padding;
+    }
+
+    &__time {
+      width: 94px;
+      height: 94px;
+      padding: 22px 10px 10px;
+    }
+
+    .btn {
+      margin-top: 40px;
+    }
+
+    + .mfp-close {
+      font-size: 60px;
+      top: 2px;
+      right: 5px + $grid-gutter-width/2;
+    }
+  }
+
+  @include xs-max {
+    &.ct-party-detailed--default {
+
+      .ct-party-detailed__time {
+        transform: scale(0.7);
+        top: -5px;
+        left: -5px;
+      }
+    }
+  }
+}

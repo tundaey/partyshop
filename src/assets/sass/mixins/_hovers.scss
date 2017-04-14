@@ -1,0 +1,45 @@
+//
+// Hover Effects
+// --------------------------------------------------
+
+//== Shadow Hover Effect
+//
+//##
+
+@mixin hover-shadow() {
+  transition: box-shadow $transition-duration $transition-timing-function;
+  &:hover {
+    @include z-depth-2;
+    &:active {
+      @include z-depth-1;
+    }
+  }
+}
+
+//== Darken Background
+//
+//##
+
+@mixin hover-darken($color_name, $value) {
+  transition: background-color $transition-duration $transition-timing-function;
+  &:hover {
+    background-color: darken($color_name, $value);
+    &:active {
+      background-color: darken($color_name, $value/2);
+    }
+  }
+}
+
+//== Lighten Background
+//
+//##
+
+@mixin hover-darken($color_name, $value) {
+  transition: background-color $transition-duration $transition-timing-function;
+  &:hover {
+    background-color: lighten($color_name, $value);
+    &:active {
+      background-color: lighten($color_name, $value/2);
+    }
+  }
+}

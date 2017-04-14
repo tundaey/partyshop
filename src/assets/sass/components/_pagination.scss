@@ -1,0 +1,18 @@
+.ct-pagination {
+  @include clearfix;
+}
+
+
+.ct-blog__pagination {
+  border-top: 2px solid $gray-lighter;
+  margin-top: 20px;
+  padding: 20px 0;
+
+  @include xs-min {
+    margin-top: 50px;
+  }
+
+  @include sm-min {
+    padding-bottom: 87px;
+  }
+}

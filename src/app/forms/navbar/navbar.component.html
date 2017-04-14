@@ -1,0 +1,34 @@
+ <div class="board-inner" id="status-buttons">
+    <ul class="nav" id="myTab">
+        <div class="row">
+      <!-- circular user icon -->
+            <div class="col-sm-4 col-xs-3 tab-line" routerLinkActive="tab-active">
+              <li  class="" style="padding: 10px;">
+              
+                <a  [routerLink]= "['create']" data-toggle="tab" title="personal">
+                    Create Invitation
+                </a>
+              </li>
+            </div>
+    
+            <!-- circular tasks icon -->
+            <div class="col-sm-4 col-xs-6 tab-line" routerLinkActive="tab-active">
+              <li  class="" style="padding: 10px;">
+                <a [routerLink]= "['gifts']" data-toggle="tab" title="work">
+                    Alege ce cadouri ti-ar placea sa primesti 
+                </a>
+            </li>
+            </div>
+    
+            <!-- circular home icon -->
+            <div class="col-sm-4 col-xs-3 tab-line" routerLinkActive="tab-active">
+              <li class="" style="padding: 10px;">
+                <a [routerLink]= "['verify']" data-toggle="tab" title="address">
+                    Check & Send
+                </a>
+            </li>
+            </div>            
+        </div>      
+    </ul>
+    
+  </div>

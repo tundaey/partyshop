@@ -1,0 +1,20 @@
+//== Font Weights
+//
+//##
+
+@each $font-weight in $font-weights {
+  .ct-u-font-weight--#{$font-weight} {
+    font-weight: $font-weight !important;
+  }
+}
+
+
+//== Font Sizes
+//
+//##
+
+@each $font-size in $font-sizes {
+  .ct-u-font-size--#{$font-size} {
+    font-size: $font-size + px !important;
+  }
+}

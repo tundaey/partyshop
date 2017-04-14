@@ -1,0 +1,38 @@
+$responsive-medias: (
+  'xs': 0,
+  'sm': $screen-sm,
+  'md': $screen-md,
+  'lg': $screen-lg
+);
+
+@each $responsive-media_name, $responsive-media_value in $responsive-medias {
+
+  @media only screen and (min-width: $responsive-media_value) {
+
+    .text-center-#{$responsive-media_name} {
+      text-align: center !important;
+    }
+
+    .text-left-#{$responsive-media_name} {
+      text-align: left !important;
+    }
+
+    .text-right-#{$responsive-media_name} {
+      text-align: right !important;
+    }
+
+    .float-none-#{$responsive-media_name} {
+      float: none !important;
+    }
+
+    .float-left-#{$responsive-media_name} {
+      float: left !important;
+    }
+
+    .float-right-#{$responsive-media_name} {
+      float: right !important;
+    }
+
+  }
+
+}

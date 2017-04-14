@@ -1,0 +1,47 @@
+//
+// Responsive Breakpoints
+// --------------------------------------------------
+
+@mixin xs-min {
+  @media only screen and (min-width: $screen-xs) {
+    @content;
+  }
+}
+@mixin xs-max {
+  @media only screen and (max-width: $screen-xs - 1) {
+    @content;
+  }
+}
+
+@mixin sm-min {
+  @media only screen and (min-width: $screen-sm) {
+    @content;
+  }
+}
+@mixin sm-max {
+  @media only screen and (max-width: $screen-sm - 1) {
+    @content;
+  }
+}
+
+@mixin md-min {
+  @media only screen and (min-width: $screen-md) {
+    @content;
+  }
+}
+@mixin md-max {
+  @media only screen and (max-width: $screen-md - 1) {
+    @content;
+  }
+}
+
+@mixin lg-min {
+  @media only screen and (min-width: $screen-lg) {
+    @content;
+  }
+}
+@mixin lg-max {
+  @media only screen and (max-width: $screen-lg - 1) {
+    @content;
+  }
+}

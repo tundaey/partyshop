@@ -1,0 +1,22 @@
+$padding_margins: padding, margin;
+$pos: top;
+
+@each $padding_margin in $padding_margins {
+
+  @each $size in $paddingmargin-sizes {
+
+    // Vertical
+    .ct-u-#{$padding_margin}-both-#{$size} {
+      #{$padding_margin}-top: $size + px !important;
+      #{$padding_margin}-bottom: $size + px !important;
+    }
+
+    @each $position in $paddingmargin-positions {
+      .ct-u-#{$padding_margin}-#{$position}-#{$size} {
+        #{$padding_margin}-#{$position}: $size + px !important;
+      }
+    }
+
+  }
+
+}

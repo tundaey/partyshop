@@ -1,0 +1,40 @@
+<header data-parallax="50" class="ct-page-header ct-page-header--small">
+  <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="ct-page-header__svg">
+      <path d="M0,100 L 100,100 100,0 Z"></path>
+  </svg>
+  <div class="ct-page-header__inner">
+      <div class="container">
+          <h1 class="h1 ct-page-header__title">Product <b>Detail</b></h1>
+      </div>
+  </div>
+</header>
+
+<div class="container ct-u-padding-bottom-50">
+    <div class="ct-party-detailed__container">
+        <div class="ct-party-detailed ct-party-detailed--default">
+            <div class="ct-party-detailed__media">
+                <img src="{{product?.image_original}}" alt="Coloring Party With Clowns Up To 3 Hours" />
+            </div>
+            <div class="ct-party-detailed__body">
+                <h4 class="ct-party-detailed__title">{{product?.name}}</h4>
+                <div class="ct-party-detailed__price"><span>${{product?.price | number:'1.1-2'}}</span>
+                </div>
+                <div class="ct-party-detailed__content">{{product?.description}}</div>
+                <div >
+            
+                  <h5 class="ct-testimonial__job">Category </h5>
+                  <p> {{product?.category_name}} </p>
+
+                  <h5 class="ct-testimonial__job">Brand Name </h5>
+                  <p> {{product?.brand_name}} </p>
+
+                  <h5 class="ct-testimonial__job">Advertiser Name </h5>
+                  <p> {{product?.advertiser_name}} </p>
+                </div>
+          
+          
+                <a href="{{product?.affiliate_link}}" target="_blank" class="btn btn-motive">Purchase</a>
+            </div>
+        </div>
+    </div>
+</div>

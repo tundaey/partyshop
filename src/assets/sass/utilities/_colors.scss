@@ -1,0 +1,8 @@
+@each $color_name, $color_value in $colors {
+  .ct-u-background--#{$color_name} {
+    background-color: $color_value !important;
+  }
+  .ct-u-color--#{$color_name} {
+    color: $color_value !important;
+  }
+}

@@ -1,0 +1,139 @@
+.ct-newsletter {
+  border-bottom: 2px solid rgba(white, 0.15);
+  padding: 37px 0 25px;
+
+  @include xs-min {
+    padding: 67px 0 64px;
+  }
+
+  &__heading {
+    span {
+      font-size: 0.93em;
+    }
+    small {
+      color: inherit;
+      display: block;
+      font-size: $font-size-base;
+    }
+  }
+
+  &__form {
+    position: relative;
+    width: calc(100% - 20px);
+    margin-top: 16px;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    margin-right: 0;
+    transition: all $transition-duration $transition-timing-function;
+    overflow: hidden;
+  }
+
+  &__content {
+    padding-top: 18px;
+  }
+
+  &__submit {
+    position: relative;
+    right: 0;
+    @include t-all;
+  }
+
+  &__wait {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    line-height: 34px;
+    opacity: 0;
+    @include t-all;
+    animation: rotate 1.5s infinite;
+    animation-timing-function: linear;
+    font-size: 20px;
+    @include xs-min {
+      line-height: 40px;
+    }
+  }
+
+  &__subscribed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-bottom: 10px;
+    text-align: center;
+    opacity: 0;
+    @include t-all;
+    z-index: -1;
+  }
+
+  &__input {
+    background: rgba($body-bg, 0.25);
+    border: none;
+    border-radius: 5px;
+    height: 37px;
+    color: rgba(white, 0.75);
+    overflow: hidden;
+    transition: all $transition-duration $transition-timing-function;
+    @include sm-min {
+      height: 43px;
+    }
+
+    &::-webkit-input-placeholder {
+      color: rgba(white, 0.75);
+    }
+
+    &::-moz-placeholder {
+      color: rgba(white, 0.75);
+    }
+
+    &:-ms-input-placeholder {
+      color: rgba(white, 0.75);
+    }
+  }
+
+  // TODO: Form integration
+  &__form.newsletter-subscribed {
+
+    .ct-newsletter__button {
+      margin-right: calc(50% - 45px);
+      @include animate-prefixer(animation-name, fadeOut);
+      @include animate-prefixer(animation-duration, $base-duration);
+      @include animate-prefixer(animation-fill-mode, $base-fill-mode);
+      animation-delay: 2s;
+    }
+
+    .ct-newsletter__input {
+      width: 0;
+      padding: 0;
+      margin-left: 50%;
+    }
+    .ct-newsletter__wait {
+      opacity: 1;
+    }
+    .ct-newsletter__submit {
+      opacity: 0;
+    }
+    .ct-newsletter__label {
+      opacity: 0;
+    }
+
+    .ct-newsletter__subscribed {
+      opacity: 1;
+      transition-delay: 2s;
+      z-index: 1;
+    }
+
+  }
+}
+
+
+@keyframes rotate {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}

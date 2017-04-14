@@ -1,0 +1,77 @@
+<div [ngSwitch]="isCompleted">
+          <div *ngSwitchDefault>
+            <div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px">
+              <h2 class="h2 ct-form-section__title">Rezumat</h2>
+              <p>Title: {{data.name}}</p>
+              <p>Location: {{data.location}}</p>
+              <p>Date: {{data.date | date: 'fullDate'}} </p>
+              <p>{{data.message}}</p>
+
+              <h2 style="margin-top: 10px" class="h2 ct-form-section__title" *ngIf="data.product_size > 0">Suggested Gift</h2>
+              <div class="col-sm-12" *ngIf="data.product_size > 3">
+                <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
+              </div>
+              
+            </div>
+
+          <div class="col-sm-12" >
+            <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
+            <div class="item" >
+                <figure *ngFor="let product of data.products" class="ct-party-box">
+                    <div class="ct-party-box__inner">
+                      <div class="ct-party-box__media">
+                            <img src="{{product?.image_original}}" alt="Balloons and Bubbles" />
+                        </div>
+                        <div class="ct-party-box__content">
+                            <h3 class="ct-party-box__header"><span>{{product.name}}</span></h3>
+                        </div>
+                    </div>
+                </figure>
+              </div>     
+            </div>
+          </div>
+          <div class="col-sm-6 col-sm-offset-3">
+            <h2 class="h2 ct-form-section__title">Send Invitation to:</h2>
+            <div class="widget widget_archive">
+              <div class="widget-inner">
+                  <h2 class="widget-title">Emails</h2>
+                  <ul >
+                      <li *ngFor="let email of data.email"><a href="#"><span class="pull-left">{{email}}</span></a>
+                      </li>
+                  </ul>
+              </div>
+            </div>   
+
+            <div class="widget widget_archive" *ngIf="data.phone_number.length > 0">
+              <div class="widget-inner">
+                  <h2 class="widget-title">SMS</h2>
+                  <ul >
+                      <li *ngFor="let number of data.phone_number"><a href="#"><span class="pull-left">{{number}}</span></a>
+                      </li>
+                  </ul>
+              </div>
+            </div>        
+          </div>
+
+          <div class="col-sm-2 col-sm-offset-4">
+            <button type="button" class="btn btn-motive" (click)="onPrevious()">Previous</button>
+          </div>
+          <div class="col-sm-2">
+            <button type="button" [disabled]="data.email <= 0" [ngClass]="{ 'isAdding': isSubmitting == true}" class="btn btn-motive" (click)="onFinish()">Trimite invitatia</button>
+          </div>
+
+        </div>
+          <div *ngSwitchCase="true">
+            <div *ngIf="invite_error" class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px; margin-top: 20px">
+              <h2 class="h2 ct-form-section__title">Your Invitation was sent succesfully</h2>
+              <a style="margin-top: 10px" type="button" class="btn btn-motive">Share on Facebook</a>
+              <p>or</p>
+              <a style="margin-top: 10px" [routerLink]= "['/invite/create']" type="button" class="btn btn-motive">Create a new Invitation</a>
+            </div>
+
+            <div *ngIf="!invite_error" class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px; margin-top: 20px">
+              <h2 class="h2 ct-form-section__title">There was an error sending your Invitation. Please try again</h2>
+              <a style="margin-top: 10px" [routerLink]= "['/invite']" type="button" class="btn btn-motive">Create a new Invitation</a>
+            </div>
+          </div>
+        </div>

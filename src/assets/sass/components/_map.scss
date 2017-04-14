@@ -1,0 +1,60 @@
+//
+// Map
+// --------------------------------------------------
+.ct-map {
+  padding-bottom: $grid-gutter-width;
+
+  .firstStyle {
+    padding: 0;
+  }
+
+  .ct-googleMap--selectContainer,
+  .ct-googleMap--searchContainer {
+    background: $motive;
+    border-radius: $border-radius-small;
+  }
+
+  .ct-googleMap--sidebar .ct-googleMap--sidebarItem:before,
+  .ct-googleMap--results:after {
+    background: $gray-lighter;
+  }
+
+  .ct-googleMap--sidebar .ct-googleMap--sidebarItem {
+    color: $accent;
+
+    &:hover {
+      color: $motive;
+    }
+  }
+
+  .ct-googleMap--sidebar .ct-googleMap--sidebarItem:after {
+    content: '\f0da';
+    font-family: 'FontAwesome';
+    background: $motive !important;
+    color: white;
+    text-align: center;
+    padding: 1px 0 0 2px;
+  }
+
+  .NavPage {
+    border: 2px solid white;
+
+    &.active {
+      background: white;
+      color: $motive;
+      border: 2px solid $motive;
+    }
+  }
+
+  .ct-googleMap--customInfoWindow a {
+    color: $motive;
+  }
+
+  .ct-googleMap--customInfoWindow {
+    border-color: $motive;
+  }
+
+  .ct-googleMap--customInfoWindow:after {
+    border-color: $motive transparent transparent transparent
+  }
+}

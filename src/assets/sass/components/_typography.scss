@@ -1,0 +1,118 @@
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+}
+
+
+h1, .h1 {
+  margin-bottom: ceil($font-size-h1 * 0.7);
+
+  b {
+    display: block;
+  }
+}
+
+
+h2, .h2 {
+
+  b {
+    font-weight: 400;
+  }
+}
+
+
+//
+// Section Header
+// --------------------------------------------------
+
+.ct-section-header {
+  position: relative;
+  padding-top: 17px;
+  margin-top: $section-header-margin-top;
+  margin-bottom: $section-header-margin-bottom;
+  color: $section-header-color;
+  text-align: center;
+
+  i {
+    padding-right: 10px;
+  }
+
+  small {
+    color: $section-header-small-color;
+    display: block;
+    margin-top: 1.35em;
+    font-size: $font-size-base;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $section-header-line-width;
+    height: $section-header-line-height;
+    background-color: $section-header-line-background;
+    border-radius: $border-radius-base;
+  }
+
+  + p {
+    margin-top: $section-header-margin-bottom * -0.7;
+    margin-bottom: 45px;
+    line-height: 2;
+  }
+
+  //** Variations
+  &.ct-section-header--white {
+    color: $body-bg;
+    padding-top: 25px;
+    margin-bottom: floor($section-header-margin-bottom * 0.9);
+
+    small {
+      color: $body-bg;
+    }
+
+    &:before {
+      opacity: 0.65;
+    }
+  }
+}
+
+
+
+//
+// Responsive Typography
+// --------------------------------------------------
+
+@include xs-max {
+
+  h1, .h1 {
+    font-size: ceil($font-size-h1 * 0.6);
+    margin-bottom: ceil($font-size-h1 * 0.5);
+  }
+
+  h2, .h2 {
+    font-size: ceil($font-size-h2 * 0.7);
+  }
+
+  h3, .h3 {
+    font-size: ceil($font-size-h3 * 0.75);
+  }
+
+  h4, .h4 {
+    font-size: ceil($font-size-h4 * 0.8);
+  }
+
+  h5, .h5 {
+    font-size: ceil($font-size-h5 * 0.85);
+  }
+
+  body {
+    font-size: ceil($font-size-base * 0.85);
+  }
+};

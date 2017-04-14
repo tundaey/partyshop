@@ -1,0 +1,16 @@
+.ct-footer {
+  background: $motive;
+  color: $body-bg;
+
+  &__logo {
+    padding: 20px 0 30px;
+  }
+
+  &__copyright {
+    margin-top: 40px;
+    background: $body-bg;
+    color: #bebebe;
+    text-align: center;
+    padding: 30px 15px;
+  }
+}

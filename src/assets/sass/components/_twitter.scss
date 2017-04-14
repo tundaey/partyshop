@@ -1,0 +1,17 @@
+.ct-twitter {
+  color: white;
+  padding-left: $grid-gutter-width/2;
+  padding-right: $grid-gutter-width/2;
+  margin-top: -$grid-gutter-width/2;
+
+  .tweet_user {
+    color: $motive;
+    padding-right: 5px;
+  }
+
+  .tweet_time {
+    &:before {
+      content: ' - ';
+    }
+  }
+}

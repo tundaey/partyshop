@@ -1,0 +1,21 @@
+.ct-u-mask {
+  position: relative;
+
+  * {
+    z-index: 1;
+  }
+
+  &:before {
+    content: '';
+    @include full-absolute;
+    background-color: rgba($mask-bg-color, $mask-default-opacity);
+  }
+
+  &--lighter:before {
+    background-color: rgba($mask-bg-color, $mask-lighter-opacity)
+  }
+
+  &--darker:before {
+    background-color: rgba($mask-bg-color, $mask-darker-opacity)
+  }
+}

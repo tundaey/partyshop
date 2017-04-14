@@ -1,0 +1,73 @@
+<nav class="ct-menu">
+            <div class="topbar">
+                <div class="topbar__inner">
+                    <address class="ct-address ct-footer__address topbar__address"><a href="https://goo.gl/maps/obRcgtwGH5K2" class="media ct-address__box" target="_blank">
+                      <div class="media-left"><i class="fa fa-map-marker"></i></div>
+                      <div class="media-body"><span class="media-heading">9870 St Vincent Place, Glasgow, DC 45 Fr 45.</span></div></a><a href="mailto:contact@myconfetti.com" class="media ct-address__box">
+                      <div class="media-left"><i class="fa fa-envelope"></i></div>
+                      <div class="media-body"><span class="media-heading">contact@myconfetti.com</span></div></a><a href="tel:0123456789" class="media ct-address__box">
+                      <div class="media-left"><i class="fa fa-phone"></i></div>
+                      <div class="media-body"><span class="media-heading">(012) 345-6789</span></div></a>
+                    </address>
+                </div>
+                <div class="topbar__inner">
+                    <ul class="ct-socials list-inline list-unstyled">
+                        <li class="ct-socials__item ct-socials__item--facebook"><a href="https://www.facebook.com/createITpl"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li class="ct-socials__item ct-socials__item--twitter"><a href="https://twitter.com/createitpl"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="ct-socials__item ct-socials__item--flickr"><a href="#"><i class="fa fa-flickr"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="midbar">
+                <div class="midbar__inner">
+                    <ul class="midbar-nav list-inline">
+                        <li class="nav-item"><a href="event-picnics.html">Picnics</a>
+                        </li>
+                        <li class="nav-item"><a href="event-church.html">Church Events</a>
+                        </li>
+                        <li class="nav-item"><a href="event-neighborhood.html">Neighborhood Parties</a>
+                        </li>
+                        <li class="nav-item"><a href="event-sports-teams.html">Sports Teams</a>
+                        </li>
+                        <li class="nav-item"><a href="event-adult.html">Fundraisers</a>
+                        </li>
+                        <li class="nav-item"><a href="event-schools.html">Schools</a>
+                        </li>
+                        <li class="nav-item"><a href="event-special.html">Special Events</a>
+                        </li>
+                        <li class="nav-item"><a href="event-birthday.html">Birthday Parties</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="midbar__inner"><a href="#" class="midbar__search-toggle"><i class="fa fa-search"></i></a>
+                </div>
+                <div class="midbar__search midbar__search--default">
+                    <form class="ct-search form-group">
+                        <input id="midbar-search" placeholder="Search..." required="required" name="field[]" class="form-control" />
+                        <label for="midbar-search" class="sr-only">Search...</label>
+                        <button type="submit"><i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="navbar navbar-default navbar-fixed">
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="assets/images/content/logo.png" alt="logo">
+                    </a>
+                </div>
+                <button *ngIf="!auth?.isLoggedIn" class="btn btn-motive pull-right" (click)="login()">SignUp/Login</button>
+                <button *ngIf="auth?.isLoggedIn" class="btn btn-motive pull-right">My Account</button>
+                <button *ngIf="auth?.isLoggedIn" class="btn btn-motive pull-right" (click)="logout()">Logout</button>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a href="">Home</a></li>
+                    <li class="nav-item"><a href="">About Us</a></li>
+                    <li class="nav-item"><a href="">Gallery</a></li>
+                    <li class="nav-item"><a href="">FAQ</a></li>
+                    <li class="nav-item"><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>

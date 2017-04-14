@@ -1,0 +1,110 @@
+//
+// Address Boxes
+// --------------------------------------------------
+
+.ct-address__box {
+  display: block;
+
+  + .ct-address__box {
+    margin-top: 10px;
+  }
+}
+
+//** Topbar
+@include md-min {
+  .topbar__address {
+    display: table;
+
+    .ct-address__box {
+      display: table-cell;
+
+      + .ct-address__box {
+        margin-top: 0;
+        padding-left: $topbar-address-item-spacing;
+      }
+
+      .media-body {
+        width: auto;
+      }
+    }
+  }
+}
+
+//** Mobile Menu
+@include md-max {
+  .ct-mobile-menu__address {
+    font-size: 16px;
+    padding: 0 0 25px;
+    .ct-address__box {
+      display: block;
+      + .ct-address__box {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+//** Footer
+.ct-footer .ct-address {
+  padding-top: 40px;
+  font-size: ceil($font-size-base * 0.9);
+
+  .ct-address__box {
+
+    .media-left {
+      min-width: 25px;
+    }
+
+    + .ct-address__box {
+      margin-top: 25px;
+    }
+  }
+}
+
+
+//** With Hovers
+.ct-address--with-hovers {
+  max-width: 420px;
+  width: 100%;
+  display: inline-block;
+  @include clearfix;
+
+  .ct-address {
+
+    &__box {
+      display: inline-block;
+      border-radius: $border-radius-base;
+      background: $motive;
+      height: 30px;
+      width: 30px;
+      line-height: 28px;
+      color: white;
+      overflow: hidden;
+      margin: 0 5px;
+      font-size: $font-size-base * 0.9;
+
+      .media-left {
+        display: inline-block;
+        width: 30px;
+        text-align: center;
+        padding: 0;
+        float: left;
+      }
+
+      .media-body {
+        width: calc(100% - 30px);
+        display: inline-block;
+        float: left;
+      }
+
+      &:hover {
+        width: calc(100% - 90px);
+      }
+
+      + .ct-address__box {
+        margin-top: 0;
+      }
+    }
+  }
+
+}

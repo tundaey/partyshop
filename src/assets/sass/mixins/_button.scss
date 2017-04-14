@@ -1,0 +1,115 @@
+@mixin button-o-variant($color, $background) {
+  background-color: transparent;
+  border-color: $color;
+
+  &, &:after { color: $color; }
+
+  &:focus,
+  &.focus {
+    &, &:after { color: $color; }
+  }
+  &:hover,
+  &.is-active {
+    background-color: $background;
+        border-color: $background;
+    &, &:after { color: $body-bg; }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-color: darken($background, 5%);
+        border-color: darken($color, 6%);
+    &, &:after { color: $body-bg; }
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: darken($background, 5%);
+          border-color: darken($background, 6%);
+      &, &:after { color: $body-bg; }
+    }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: transparent;
+          border-color: $color;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+
+
+@mixin button-variant($color, $background, $border) {
+  background-color: $background;
+  border-color: $border;
+  
+  &, &:after { color: $color; }
+
+  &:focus,
+  &.focus {
+    background-color: darken($background, 5%);
+        border-color: darken($border, 5%);
+    &, &:after { color: $color; }
+  }
+  &:hover,
+  &.is-active {
+    background-color: darken($background, 10%);
+        border-color: darken($border, 10%);
+    &, &:after { color: $color; }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-color: darken($background, 10%);
+        border-color: darken($border, 10%);
+    &, &:after { color: $color; }
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: darken($background, 17%);
+          border-color: darken($border, 17%);
+      &, &:after { color: $color; }
+    }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}

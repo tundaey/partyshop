@@ -1,0 +1,173 @@
+
+<section class="container text-center">
+  <h2 class="ct-section-header"></h2>
+  <div class="row"> 
+    <form-wizard>
+      <wizard-step [title]="'Creaza Invitatia'" [isValid]="inviteForm.form.valid" [showPrev]="showPrev" (onNext)="onStep1Next($event)">
+        <form #inviteForm="ngForm">
+            <div class="col-sm-6 col-sm-offset-3" style="margin-top: 20px">
+              <div class="form-group">
+                  <input type="text" placeholder="Name" id="name" [(ngModel)]="data.name" name="name" class="form-control" />                         
+              </div>
+              <div class="form-group">
+                  <input type="text" placeholder="Location" id="name" [(ngModel)]="data.location" name="location" class="form-control" />                         
+              </div>
+              <my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)" [placeholder]="placeholder"></my-date-picker>
+              <div class="form-group">
+                <textarea placeholder="Write an Invitation Message" [(ngModel)]="data.message" name="message"
+                id="questions-or-comments" rows="8" class="form-control ct-u-margin-top-15"></textarea>
+                <label for="questions-or-comments" class="sr-only">Invitation Message</label>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px">
+              <h2 class="h2 ct-form-section__title">Trimite invitatia la:: </h2>
+              <div class="form-group">
+                <tag-input name="email" [(ngModel)]="data.email" placeholder="Enter Another Email" 
+              [modelAsStrings]="true" secondaryPlaceholder="Enter Emails">
+                </tag-input>
+              </div>
+            <div class="form-group">
+              <label for="sms" class="sr-only">SMS Phone Number</label>
+              <tag-input name="phone_number" [(ngModel)]="data.phone_number" placeholder="Enter Another Number"
+              [modelAsStrings]="true" secondaryPlaceholder="Enter Phone Numbers">
+                </tag-input>
+            </div> 
+          </div>
+        </form>
+      </wizard-step>
+      <wizard-step [title]="'Alege Cadoul'" (onNext)="onStep2Next($event)" [showPrev]="showPrev">
+        <div class="col-sm-12">      
+
+          <div class="col-sm-2">
+            <div class="form-group" style="margin-top: 20px">
+              <select id="month" data-placeholder="13-14" required="required" name="field[]" class="ct-select">
+                  <option disabled="disabled" selected="selected" hidden="hidden" value="">13-14</option>
+                  <option value="January">13-14</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="form-group" style="margin-top: 20px">
+              <select id="month" data-placeholder="50 - 100 Lei" required="required" name="field[]" class="ct-select">
+                  <option disabled="disabled" selected="selected" hidden="hidden" value="">50 - 100 Lei</option>
+                  <option value="January">50 - 100 Lei</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group" style="margin-top: 20px">
+              <input type="text" placeholder="Enter Search Query" id="sms" class="form-control" />
+            </div> 
+          </div> 
+
+          <div class="col-sm-1">
+            <div class="form-group" style="margin-top: 20px">
+              <button type="button" class="btn btn-motive form-control">Search</button>
+            </div> 
+          </div> 
+        </div>
+        <div class="col-sm-12">
+          <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
+        </div>
+          
+        <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
+
+            <div class="item" >
+                <figure *ngFor="let product of products" class="ct-party-box">
+                    <div class="ct-party-box__inner">
+                        <div class="ct-party-box__media"><a href="party-1.html" class="btn btn-accent mfp-ajax">Quick View</a>
+                            <img src="{{product?.image_original}}" alt="Balloons and Bubbles" />
+                        </div>
+                        <div class="ct-party-box__content">
+                            <h3 class="ct-party-box__header"><span>{{product.name}}</span></h3>
+                            <div class="ct-party-box__price"> <span>${{product.price | number:'1.1-2'}}</span>
+                            </div>
+                            <p>{{product.description}}.</p>
+                            <a type="button" class="btn btn-motive" [routerLink] = "[product._id]">View</a>
+                            <a style="margin-top: 10px" type="button" class="btn btn-motive" (click)="onAddTofavorites(product)">Adauga la Favorite</a>
+                        </div>
+                    </div>
+                </figure>
+              </div>     
+        </div>
+      </wizard-step>
+      <wizard-step [title]="'Verifica & Trimite'" (onComplete)="onComplete($event)">
+        <div [ngSwitch]="isCompleted">
+          <div *ngSwitchDefault>
+            <div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px">
+              <h2 class="h2 ct-form-section__title">Summary</h2>
+              <p>Title: {{data.name}}</p>
+              <p>Location: {{data.location}}</p>
+              <p>Date: {{data.date | date: 'fullDate'}} </p>
+              <p>{{data.message}}</p>
+
+              <h2 class="h2 ct-form-section__title" *ngIf="data.product_size > 3">Suggested Gift</h2>
+              <div class="col-sm-12" *ngIf="data.product_size > 3">
+                <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
+            </div>
+          </div>
+
+          <div class="col-sm-12" >
+            <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
+            <div class="item" >
+                <figure *ngFor="let product of data.products" class="ct-party-box">
+                    <div class="ct-party-box__inner">
+                        <div class="ct-party-box__media"><a href="party-1.html" class="btn btn-accent mfp-ajax">Quick View</a>
+                            <img src="{{product?.image_original}}" alt="Balloons and Bubbles" />
+                        </div>
+                        <div class="ct-party-box__content">
+                            <h3 class="ct-party-box__header"><span>{{product.name}}</span></h3>
+                            <div class="ct-party-box__price"> <span>${{product.price | number:'1.1-2'}}</span>
+                            </div>
+                            <p>{{product.description}}.</p>
+                            <a type="button" class="btn btn-motive" [routerLink] = "['product._id']">Link</a>
+                        </div>
+                    </div>
+                </figure>
+              </div>     
+            </div>
+          </div>
+          <div class="col-sm-6 col-sm-offset-3">
+            <h2 class="h2 ct-form-section__title">Send Invitation to:</h2>
+            <div class="widget widget_archive">
+              <div class="widget-inner">
+                  <h2 class="widget-title">Emails</h2>
+                  <ul >
+                      <li *ngFor="let email of data.email"><a href="#"><span class="pull-left">{{email}}</span></a>
+                      </li>
+                  </ul>
+              </div>
+            </div>   
+
+            <div class="widget widget_archive" *ngIf="data.phone_number.length > 0">
+              <div class="widget-inner">
+                  <h2 class="widget-title">SMS</h2>
+                  <ul >
+                      <li *ngFor="let number of data.phone_number"><a href="#"><span class="pull-left">{{number}}</span></a>
+                      </li>
+                  </ul>
+              </div>
+            </div>        
+          </div>
+          </div>
+          <div *ngSwitchCase="true">
+            <div *ngIf="invite_error" class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px; margin-top: 20px">
+              <h2 class="h2 ct-form-section__title">Your Invitation was sent succesfully</h2>
+              <a style="margin-top: 10px" type="button" class="btn btn-motive">Share on Facebook</a>
+              <p>or</p>
+              <a style="margin-top: 10px" [routerLink]= "['/invite']" type="button" class="btn btn-motive">Create a new Invitation</a>
+            </div>
+
+            <div *ngIf="!invite_error" class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px; margin-top: 20px">
+              <h2 class="h2 ct-form-section__title">There was an error sending your Invitation. Please try again</h2>
+              <a style="margin-top: 10px" [routerLink]= "['/invite']" type="button" class="btn btn-motive">Create a new Invitation</a>
+            </div>
+          </div>
+        </div>
+      </wizard-step>
+    </form-wizard>
+  </div>
+ </section>

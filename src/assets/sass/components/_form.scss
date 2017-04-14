@@ -1,0 +1,264 @@
+//
+// Form
+// --------------------------------------------------
+.form-control {
+  box-shadow: none;
+  appearance: none;
+  &:focus,
+  &.focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba($motive,.6)
+  }
+}
+
+textarea.form-control[rows="7"] {
+  min-height: 165px;
+  padding-top: 12px;
+}
+
+.ct-search {
+  position: relative;
+  color: $search-color;
+
+  .form-control {
+    background-color: $gray-lighter;
+    border: none;
+    color: inherit;
+    padding: 0 47px 0 20px;
+    border-radius: $search-border-radius;
+  }
+
+  button {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    right: 14px;
+    height: $input-height-base;
+    border: none;
+    color: lighten($search-color, 10%)
+  }
+
+}
+
+.selectize-dropdown, .selectize-dropdown.form-control {
+  border-radius: 5px;
+}
+.selectize-input {
+  margin-bottom: -5px;
+}
+.selectize-dropdown [data-selectable] .highlight {
+  background: rgba($motive, 0.6);
+  color: white;
+}
+
+//== Bootstrap Range Slider
+//
+//##
+.ct-range-slider {
+  width: 100%;
+  position: relative;
+  height: $range-slider-height;
+  border-radius: $range-slider-border-radius;
+  background: $range-slider-bg;
+
+  &__wrapper {
+    padding-top: 15px;
+    padding-bottom: 55px;
+  }
+
+  &__left-grip,
+  &__right-grip {
+    position: absolute;
+    top: 50%;
+    margin-top: -$range-slider-grip-height/2;
+    left: 0;
+    width: $range-slider-grip-height;
+    height: $range-slider-grip-height;
+    display: block;
+    cursor: hand;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      background-color: $motive;
+      width: $range-slider-grip-width;
+      height: $range-slider-grip-height;
+      top: 0;
+      left: 0;
+      border-radius: $range-slider-grip-border-radius;
+      transition: transform $transition-duration $transition-timing-function;
+      @include t-bgc;
+    }
+
+    &:active,
+    &:focus {
+
+      &:before {
+        background-color: lighten($motive, 12%);
+      }
+    }
+  }
+
+
+  &__label {
+    position: absolute;
+    top: calc(100% + 5px);
+    cursor: text;
+    font-size: ceil($font-size-base * 0.9);
+    color: darken($gray-light, 29%);
+    left: 0;
+    background: $body-bg;
+    border: none;
+    width: 45px;
+
+    .ct-range-slider__right-grip & {
+      left: auto;
+      right: 0;
+      text-align: right;
+    }
+
+    &:before {
+      content: $range-slider-before-symbol;
+    }
+  }
+
+
+  &__bar {
+    height: $range-slider-height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $range-slider-selected-bg;
+  }
+
+
+  .slider-selection {
+    box-shadow: none;
+  }
+}
+
+
+.checkbox-group {
+  margin-bottom: 8px;
+
+  label {
+    position: relative;
+    padding-left: floor($checkbox-width * 2);
+    color: $checkbox-label-color;
+    font-weight: $checkbox-label-font-weight;
+    cursor: pointer;
+    @include t-col;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: $checkbox-width;
+      height: $checkbox-height;
+      line-height: floor($checkbox-height * 0.8);
+      font-size: 8px;
+      color: $checkbox-color;
+      margin-top: - ceil($checkbox-height/2);
+      border: 2px solid $checkbox-color;
+      border-radius: $checkbox-border-radius;
+      font-family: 'FontAwesome';
+      text-align: center;
+      padding-left: 1px;
+      @include t-all;
+      overflow: hidden;
+    }
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  input:checked + label {
+
+    &:before {
+      content: '\f00c';
+    }
+  }
+}
+
+
+
+
+//== Messages
+//
+//##
+.successMessage,
+.errorMessage {
+  display: none;
+  margin-top: 35px;
+}
+
+
+
+
+//== Contact Section
+//
+//##
+
+.ct-form-section {
+  margin: 65px auto 35px;
+  padding-left: $grid-gutter-width/2;
+  padding-right: $grid-gutter-width/2;
+  width: 100%;
+  max-width: 920px;
+
+  @include sm-min {
+    margin: 87px auto 67px;
+  }
+
+
+  &__title {
+    color: $motive;
+    text-align: center;
+
+    a {
+      font-weight: 700;
+    }
+
+    &.text-left {
+      text-align: left;
+    }
+  }
+
+
+  &__header {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+
+  &__form {
+    border-top: 2px solid $gray-lighter;
+    margin-top: 20px;
+    padding-top: 50px;
+  }
+
+
+  button[type="submit"] {
+    margin-top: 17px;
+  }
+
+
+  &--type2 {
+    max-width: none;
+
+    .ct-form-section__title {
+      font-weight: 700;
+    }
+
+    @include md-min {
+      margin-bottom: 87px;
+    }
+
+    .ct-form-section__form {
+      padding-top: 35px;
+    }
+
+  }
+}

@@ -1,0 +1,124 @@
+//
+// Display Types
+// --------------------------------------------------
+
+@mixin tablex() {
+  display: table;
+  width  : 100%;
+
+  & > &__inner, > .inner {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .browser-mozilla & {
+    display: flex;
+    align-items: center;
+  }
+
+  .browser-mozilla & > &__inner, .browser-mozilla & > .inner {
+    display: block;
+    flex: 0 0 auto;
+  }
+}
+
+@mixin tablex-top() {
+  display: table;
+  width  : 100%;
+
+  & > &__inner, > .inner {
+    display: table-cell;
+    width: 100%;
+    vertical-align: top;
+  }
+
+  .browser-mozilla & {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .browser-mozilla & > &__inner, .browser-mozilla & > .inner {
+    display: block;
+    flex: 0 0 auto;
+  }
+}
+
+@mixin tablex-bottom() {
+  display: table;
+  width  : 100%;
+
+  & > &__inner, > .inner {
+    display: table-cell;
+    width: 100%;
+    vertical-align: bottom;
+  }
+
+  .browser-mozilla & {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .browser-mozilla & > &__inner, .browser-mozilla & > .inner {
+    display: block;
+    flex: 0 0 auto;
+  }
+}
+
+
+
+
+
+@mixin table() {
+  display: table;
+  width: 100%;
+
+  > .inner, & > &__inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
+@mixin table-top() {
+  display: table;
+  width: 100%;
+
+  > .inner, & > &__inner {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+  }
+}
+
+@mixin table-bottom() {
+  display: table;
+  width: 100%;
+
+  > .inner, & > &__inner {
+    display: table-cell;
+    vertical-align: bottom;
+    width: 100%;
+  }
+}
+
+
+//** Utility from displays
+.ct-u-display-tablex {
+  @include tablex();
+}
+.ct-u-display-tablex-top {
+  @include tablex-top();
+}
+.ct-u-display-tablex-bottom {
+  @include tablex-bottom();
+}
+.ct-u-display-table {
+  @include table();
+}
+.ct-u-display-table-top {
+  @include table-top();
+}
+.ct-u-display-table-bottom {
+  @include table-bottom();
+}

@@ -1,0 +1,37 @@
+
+<section class="container">
+    <!--<h2 class="ct-section-header">Choose a   <b>Product</b></h2>-->
+    <div data-filter-for="#slick-themes" class="ct-shop-filters">
+        <button class="btn btn-motive">Search</button>-->
+        <form class="ct-search form-group">
+            <input id="midbar-search" placeholder="Search..." required="required" name="field[]" class="form-control" />
+            <label for="midbar-search" class="sr-only">Search...</label>
+            <button type="submit"><i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="row">
+        <div id="slick-themes" data-items="3" data-items-sm="3" data-items-lg="3" data-items-xl="4" class="ct-slick text-center">
+            <div class="item" >
+                <figure *ngFor="let product of products" class="ct-party-box">
+                    <div class="ct-party-box__inner">
+                        <div class="ct-party-box__media"><a href="party-1.html" class="btn btn-accent mfp-ajax">Quick View</a>
+                            <img src="{{product?.image_original}}" alt="Balloons and Bubbles" />
+                        </div>
+                        <div class="ct-party-box__content">
+                            <h3 class="ct-party-box__header"><span>{{product.name}}</span></h3>
+                            <div class="ct-party-box__price"> <span>${{product.price | number:'1.1-2'}}</span>
+                            </div>
+                            <p>{{product.description}}.</p>
+                            <a type="button" class="btn btn-motive" [routerLink] = "[product._id]">View</a>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
+        </div>
+    </div>
+
+
+</section> 

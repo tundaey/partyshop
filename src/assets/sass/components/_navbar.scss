@@ -1,0 +1,228 @@
+//
+// Menu
+// --------------------------------------------------
+@include md-min {
+
+  /*nav*/.ct-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: $menu-width;
+    z-index: $menu-z-index;
+    top: $menu-offset;
+    color: $menu-color;
+    font-size: $menu-font-size;
+    font-weight: $menu-font-weight;
+    padding: $menu-padding-vertical $menu-padding-horizontal;
+  }
+
+
+  //
+  // Topbar
+  // --------------------------------------------------
+
+  .topbar {
+    display: table;
+    height: $topbar-height;
+    width: calc(100% + #{$menu-padding-horizontal * 2});
+    background-color: $topbar-bg;
+    border-radius: $border-radius-base;
+    padding: $topbar-padding;
+    margin: 0 (-$menu-padding-horizontal);
+
+    &__inner {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+
+  //
+  // Midbar
+  // --------------------------------------------------
+
+  .midbar {
+    height: $midbar-height;
+    @include table();
+    border-bottom: $midbar-border;
+    margin-bottom: $navbar-offset-top;
+  }
+
+  .midbar-nav {
+
+    a {
+      &:hover {
+        color: $navbar-default-link-hover-color;
+      }
+    }
+
+    .nav-item.active > a{
+      color: $navbar-default-link-active-color;
+    }
+
+    li + li {
+      padding-left: ceil($midbar-item-spacing * 0.8);
+    }
+
+    @include lg-min {
+      li + li {
+        padding-left: $midbar-item-spacing;
+      }
+    }
+  }
+
+  // Search
+
+  .midbar__search-toggle {
+    font-size: $midbar-search-icon-size;
+  }
+
+  .midbar__search {
+    display: none;
+
+    .form-group {
+      width: 100%;
+      height: $midbar-height - 2;
+      margin: 0;
+
+      button {
+        height: $midbar-height - 2;
+        font-size: $midbar-search-icon-size;
+      }
+    }
+
+    .form-control {
+      height: inherit;
+      font-size: $midbar-search-font-size;
+      font-weight: $midbar-search-font-weight;
+      line-height: $midbar-height - 2;
+    }
+
+    &--transparent {
+
+      .form-group button {
+        right: 0;
+        padding-right: 0;
+        color: white;
+      }
+
+      .form-control {
+        background-color: transparent;
+        padding: 0 34px 0 0;
+        color: white;
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+
+      ::-webkit-input-placeholder {
+        color: white;
+      }
+
+      ::-moz-placeholder {
+        color: white;
+      }
+
+      :-ms-input-placeholder {
+        color: white;
+      }
+    }
+
+    &--default {
+      position: relative;
+      top: 2px;
+      left: -$menu-padding-horizontal;
+      width: calc(100% + #{$menu-padding-horizontal * 2});
+      @include lg-min {
+        left: -42px;
+        width: calc(100% + 84px);
+      }
+    }
+  }
+
+
+  .search-open {
+    .midbar__inner {
+      display: none;
+    }
+    .midbar__search {
+      display: block;
+    }
+  }
+
+
+  //
+  // Navbar
+  // --------------------------------------------------
+
+  .navbar {
+    font-size: $navbar-font-size;
+    border: none;
+    .navbar-brand {
+      padding-top: $navbar-brand-offset-top;
+    }
+    .navbar-nav li a{
+      @include lg-min {
+        padding-left: ceil($navbar-link-spacing / 2);
+        padding-right: ceil($navbar-link-spacing / 2);
+      }
+    }
+    .navbar-nav > li:last-child a {
+      padding-right: $navbar-link-spacing - 4;
+    }
+
+    &.navbar-fixed:before {
+      top: $navbar-offset-top;
+    }
+
+    .dropdown-menu > li > .active {
+      color: $navbar-default-link-active-color;
+    }
+
+    .page-scrolled &.navbar-fixed {
+      -webkit-transform: translateZ(0);
+      position: fixed;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: $menu-width;
+      margin: auto;
+      background: $navbar-sticky-bg;
+      z-index: 999;
+      animation-name: navbar-animation-1;
+      animation-duration: $transition-duration;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -3333px;
+        height: $navbar-height + 20px;
+        width: 9999px;
+        background: $navbar-sticky-bg;
+        z-index: -1;
+        @include z-depth-1;
+      }
+    }
+  }
+
+}
+
+@include md-max {
+  .ct-menu {
+    display: none !important;
+  }
+}
+
+
+@keyframes navbar-animation-1 {
+  0% {top: -100%}
+  70% {top: -5%}
+  100% {top: 0%}
+}
