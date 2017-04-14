@@ -62,7 +62,6 @@ import { NavbarComponent } from './forms/navbar/navbar.component';
     FormWizardModule,
     TagInputModule,
     MyDatePickerModule,
-    NglModule.forRoot(),
     HttpModule, 
     routes
   ],
