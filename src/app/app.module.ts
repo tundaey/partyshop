@@ -64,6 +64,7 @@ import { NavbarComponent } from './forms/navbar/navbar.component';
     TagInputModule,
     MyDatePickerModule,
     HttpModule, 
+   
     routes
   ],
   providers: [ProductService, 

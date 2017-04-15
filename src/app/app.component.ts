@@ -15,6 +15,7 @@ import { FacebookLoginResponse, FacebookService, FacebookLoginStatus} from 'ng2-
 export class AppComponent implements OnInit,OnDestroy {
   isAuthenticated: boolean;
   isLoggedIn: Observable<boolean>;
+  showMobileMenu: boolean = true;
   
   private subscription: Subscription;
 
@@ -40,6 +41,11 @@ export class AppComponent implements OnInit,OnDestroy {
 
   ngOnDestroy(){
     //this.subscription.unsubscribe();
+  }
+
+  createInvite(){
+    this.showMobileMenu = false;
+    //this.router.navigate(['/invite/create'])
   }
 
   isAuth(){

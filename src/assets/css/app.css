@@ -10,6 +10,20 @@
   margin-top: 38px;
 }
 
+.c-menu__close {
+  /*color: #fff;
+  background-color: #3184a1;
+  font-size: 14px;
+  border: none;
+  box-shadow: none;
+  border-radius: none;*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+
 .tab-active{
     color: #fc6a9c;
     border-bottom-color: #fc6a9c !important;

@@ -1,30 +1,59 @@
 <div class="col-sm-12">      
-
-
-          <!--<div class="col-sm-2 col-xs-6">
-            <div class="form-group" style="margin-top: 20px">
-              <select id="month" data-placeholder="13-14" required="required" name="field[]" class="ct-select">
-                  <option disabled="disabled" selected="selected" hidden="hidden" value="">13-14</option>
-                  <option value="January">13-14</option>
-              </select>
-            </div>
-          </div>-->
-
-          <!--<div class="col-sm-2 col-xs-6">
-            <div class="form-group" style="margin-top: 20px">
-              <select id="month" data-placeholder="50 - 100 Lei" required="required" name="field[]" class="ct-select">
-                  <option disabled="disabled" selected="selected" hidden="hidden" value="">50 - 100 Lei</option>
-                  <option value="January">50 - 100 Lei</option>
-              </select>
-            </div>
-          </div>-->
-
           <div style="margin-top: 3em" class="col-sm-2 col-xs-4 col-sm-offset-1">
             <button type="button" class="btn btn-motive" (click)="onPrevious()">Previous</button>
         </div>
 
         <div style="margin-top: 3em" class="col-sm-2 col-xs-4 col-sm-offset-7">
             <button type="button" class="btn btn-motive" (click)="onNext()">Verifica & Trimite</button>
+        </div>
+
+         <h2 class="h2" style="padding-top: 3em">.</h2>
+        <div id="faq" role="tablist" aria-multiselectable="true" class="panel-group">
+            <div class="panel panel-motive">
+                <div role="tab" id="header-faq-1" class="panel-heading">
+                    <h4 class="panel-title"><a style="margin-top: 3em" aria-controls="collapse-faq-1" aria-expanded="true" data-parent="#faq" data-toggle="collapse" href="#collapse-faq-1" role="button" class="collapse">Cele mai populare cadouri</a></h4>
+                </div>
+                <div id="collapse-faq-1" role="tabpanel" aria-labelledby="header-faq-1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                     <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
+
+                        <div class="item" >
+                            <figure *ngFor="let product of favoritedProducts" class="ct-party-box" style="margin-bottom: 0px">
+                                <div class="ct-party-box__inner">
+                                    <div class="ct-party-box__media">
+                                        <img src="{{product?.image_original}}" alt="Balloons and Bubbles" />
+                                    </div>
+                                    <div class="ct-party-box__content">
+                                        <h3 class="ct-party-box__header"><span>{{product.name}}</span></h3>
+                                        <div class="col-xs-6 col-sm-12">
+                                          <div class="ct-party-box__price"> <span>${{product.price | number:'1.1-2'}}</span>
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-12">
+                                          <a  class="btn btn-motive" href="{{product?.affiliate_link}}" target="_blank">{{product.advertiser_name}}</a>
+                                        </div>
+
+                                        <!--<p>{{product.description}}.</p>-->
+                                        
+                                        
+                                        <button style="margin-top: 2em" *ngIf="product.added == undefined" 
+                                          type="button" class="btn btn-motive"
+                                          [ngClass]="{ 'isAdding': product.adding == true}"
+                                        (click)="onAddTofavorites(product, $event)">Adauga la Favorite</button>
+
+                                        <button style="margin-top: 2em" *ngIf="product.added == true" 
+                                          type="button" class="btn btn-motive"
+                                          [ngClass]="{ 'isAdding': product.adding == true}"
+                                        (click)="removeFromFavorites(product, $event)">Remove from Favorites</button>
+                                    </div>
+                                </div>
+                            </figure>
+                          </div>     
+                    </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
           <div class="col-sm-4 col-sm-offset-4 col-xs-12">
@@ -52,7 +81,7 @@
         <div id="faq" role="tablist" aria-multiselectable="true" class="panel-group"  *ngIf="searchResults">
             <div class="panel panel-motive">
                 <div role="tab" id="header-faq-1" class="panel-heading">
-                    <h4 class="panel-title"><a style="margin-top: 3em" aria-controls="collapse-faq-1" aria-expanded="true" data-parent="#faq" data-toggle="collapse" href="#collapse-faq-1" role="button" class="show">Cele mai populare cadouri</a></h4>
+                    <h4 class="panel-title"><a style="margin-top: 3em" aria-controls="collapse-faq-1" aria-expanded="true" data-parent="#faq" data-toggle="collapse" href="#collapse-faq-1" role="button" class="show">Search Results</a></h4>
                 </div>
                 <div id="collapse-faq-1" role="tabpanel" aria-labelledby="header-faq-1" class="panel-collapse collapse.show">
                     <div class="panel-body">

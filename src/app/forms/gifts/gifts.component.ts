@@ -14,6 +14,7 @@ import { GiftService } from './gift.service'
 export class GiftsComponent implements OnInit {
 products: any;
 searchedProducts: any;
+favoritedProducts: any;
 searchResults: boolean = false;
 isRequesting : boolean = false;
 data: any;
@@ -42,11 +43,15 @@ openResults : boolean = true;
         console.log('current products', current_products)
         if(current_products.length > 0){
           console.log('hello')
-          this.products = current_products
+          this.products = current_products;
+          this.favoritedProducts = this.products.slice(0, 3);
+          console.log('favorite products', this.favoritedProducts)
         }else{
           console.log('world')
           this.formData.setProducts(data.products);
           this.products = this.formData.getGifts();
+           this.favoritedProducts = this.products.slice(0, 3);
+           console.log('favorite products', this.favoritedProducts)
         }
         
         //this.products = data.products;
@@ -90,12 +95,14 @@ openResults : boolean = true;
 
   onPageChange(offset){
     console.log('page changed', offset);
+    this.isRequesting = true;
     this.offset = offset
     this.giftService.getProducts(this.offset, this.limit)
     .subscribe(
       (data) => {
-        this.products = data.products;
         this.formData.setProducts(this.products);
+        this.products = this.formData.getGifts();
+        this.isRequesting = false;
       }
     )
   }

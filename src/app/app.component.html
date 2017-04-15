@@ -28,8 +28,9 @@
             <div class="ct-mobile-menu__content">
                 <ul class="ct-mobile-menu__nav list-unstyled">
                     <!--<li routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/']" >Home</a> </li>-->
-                    <li routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/invite/create']" >Creaza Invitatia</a> </li>  
-                    <li *ngIf="auth.isLogin" routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/profile']" >>Contul meu</a>
+                    <li routerLinkActive = "active" class="nav-item"><a [routerLink]= "['/invite/create']" >Creaza Invitatia</a> </li>       
+                    <li *ngIf="auth.isLogin" routerLinkActive = "active" class="nav-item">
+                        <a [routerLink]= "['/profile']" >>Contul meu</a>
                     </li>
                 </ul>
                 <div role="separator" class="divider"></div>
