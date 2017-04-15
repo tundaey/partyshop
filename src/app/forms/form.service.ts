@@ -2,7 +2,7 @@ import { Injectable }  from '@angular/core';
 import { Subject, BehaviorSubject, Observable } from 'rxjs/Rx'
 
 import { FormData }       from './form';
-import { ProductService } from '../product/product.service';
+import { GiftService } from './gifts/gift.service';
 import { Product } from '../product/product';
 
 @Injectable()
@@ -25,10 +25,11 @@ export class FormDataService {
     count: number = 50;
     offset: number = 1;
     limit: number = 20;
-    products_loaded: boolean = false;
+    products_loaded: boolean;
 
-    constructor(private productService: ProductService){
-        productService.getProducts().subscribe(
+    constructor(private giftService: GiftService){
+        this.products_loaded = false;
+        giftService.getProducts().subscribe(
             (data) => {
             console.log('service products', data.products);
             this.products = data.products;
@@ -52,6 +53,14 @@ export class FormDataService {
     getLoadingStatus(){
         let subject = new BehaviorSubject(this.products_loaded)
         return subject.asObservable();
+    }
+
+    setProducts(products){
+        this.products = products
+    }
+
+    getGifts(){
+        return this.products;
     }
 
     addToFavorites(oldProduct, newProduct){

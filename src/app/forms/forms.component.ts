@@ -12,9 +12,9 @@ export class FormsComponent implements OnInit {
     @Input() formData;
     
     constructor(private formDataService: FormDataService) {
-      formDataService.getLoadingStatus().subscribe(
-        (status) => this.loadingStatus = status
-      )
+      // formDataService.getLoadingStatus().subscribe(
+      //   (status) => this.loadingStatus = status
+      // )
     }
  
     ngOnInit() {

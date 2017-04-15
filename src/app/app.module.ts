@@ -17,7 +17,8 @@ import { AuthService} from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { FacebookService } from 'ng2-facebook-sdk'
 import { InviteService } from './invite/invite.service';
-import { FormDataService } from './forms/form.service'
+import { FormDataService } from './forms/form.service';
+import { GiftService } from './forms/gifts/gift.service';
 
 import { FormWizardModule } from 'angular2-wizard';
 import { TagInputModule } from 'ng2-tag-input';
@@ -65,7 +66,14 @@ import { NavbarComponent } from './forms/navbar/navbar.component';
     HttpModule, 
     routes
   ],
-  providers: [ProductService, FacebookService, AuthService, AuthGuard, InviteService, FormDataService],
+  providers: [ProductService, 
+              FacebookService,
+              GiftService,
+              AuthService, 
+              AuthGuard, 
+              InviteService, 
+              FormDataService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
