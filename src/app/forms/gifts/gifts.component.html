@@ -14,8 +14,8 @@
                     <h4 class="panel-title"><a style="margin-top: 3em" aria-controls="collapse-faq-2" aria-expanded="true" data-parent="#faq2" data-toggle="collapse" href="#collapse-faq-2" role="button" class="collapse">Cele mai populare cadouri</a></h4>
                 </div>
                 <div id="collapse-faq-2" role="tabpanel" aria-labelledby="header-faq-2" class="panel-collapse collapse">
+                    <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
                     <div class="panel-body">
-                      <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
                      <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
 
                         <div class="item" >
