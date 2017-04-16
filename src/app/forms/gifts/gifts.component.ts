@@ -44,18 +44,14 @@ openResults : boolean = true;
       (data) => {
         console.log('products', data);
         const current_products = this.formData.getGifts();
-        console.log('current products', current_products)
         if(current_products.length > 0){
           console.log('hello')
           this.products = current_products;
-          this.favoritedProducts = this.products.slice(0, 3);
-          console.log('favorite products', this.favoritedProducts)
         }else{
           console.log('world')
           this.formData.setProducts(data.products);
           this.products = this.formData.getGifts();
            this.favoritedProducts = this.products.slice(0, 3);
-           console.log('favorite products', this.favoritedProducts)
         }
         
         //this.products = data.products;
@@ -104,7 +100,7 @@ openResults : boolean = true;
     this.giftService.getProducts(this.offset, this.limit)
     .subscribe(
       (data) => {
-        this.formData.setProducts(this.products);
+        this.formData.setProducts(data.products);
         this.products = this.formData.getGifts();
         this.isRequesting = false;
       }
