@@ -24,6 +24,10 @@ count: number = 50;
 offset: number = 1;
 limit: number = 20;
 
+search_count: number = 50;
+search_offset: number = 1;
+search_limit: number = 20;
+
 openResults : boolean = true;
 
   constructor(
@@ -117,7 +121,23 @@ openResults : boolean = true;
         this.searchResults = true;
         this.searchedProducts = data.searchedProducts;
         this.isRequesting = false;
-        form.reset();
+        //form.reset();
+      }
+    )
+  }
+
+  onSearchPageChange(offset, form){
+    console.log('seach next page', offset);
+    const query = form.value.query;
+    console.log('page changed', offset);
+    this.isRequesting = true;
+    this.search_offset = offset
+    this.giftService.searchProducts(query, this.search_offset, this.limit)
+    .subscribe(
+      (data) => {
+        this.formData.setProducts(this.products);
+        this.searchedProducts = data.searchedProducts;
+        this.isRequesting = false;
       }
     )
   }

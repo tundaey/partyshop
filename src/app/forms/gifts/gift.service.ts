@@ -7,9 +7,13 @@ import { BehaviorSubject, Observable } from   'rxjs/Rx'
 export class GiftService {
 
   products: Product[] = [];
+  searched_products: Product[] = [];
+  search_count: number = 50;
+  search_offset: number = 1;
+  search_limit: number = 20;
+
   //url = 'http://localhost:5000/api';
   url = 'https://partyshop-api.herokuapp.com/api' 
-//products;
 
   constructor(private http: Http) { }
 
@@ -18,10 +22,18 @@ export class GiftService {
       .map((response: Response)=> response.json())
   }
 
-  searchProducts(query){
+  searchProducts(query, offset : number = 0, limit: number = 20){
     console.log('query', query)
-    return this.http.post(`${this.url}/search`, {query: query})
+    return this.http.post(`${this.url}/search`, {query: query, offset: offset, limit: limit})
     .map((response: Response) => response.json())
+  }
+
+  getSearchProducts(query, offset : number = 0, limit: number = 20){
+    this.searchProducts(query, offset, limit).subscribe(
+      (data) => {
+        this.searched_products = data.searchedProducts
+      }
+    )
   }
 
   getGifts(offset : number = 0, limit: number = 20){
