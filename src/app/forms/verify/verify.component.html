@@ -2,12 +2,12 @@
           <div *ngSwitchDefault>
             <div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px">
               <h2 class="h2 ct-form-section__title">Rezumat</h2>
-              <p>Title: {{data.name}}</p>
-              <p>Location: {{data.location}}</p>
-              <p>Date: {{data.date | date: 'fullDate'}} </p>
+               <p>{{data.name}} te invita la petrecerea zilei de nastere organizata la</p>
+              <p>{{data.location}}</p>
+              <p>in data de {{data.date | date: 'fullDate'}} </p>
               <p>{{data.message}}</p>
 
-              <h2 style="margin-top: 10px" class="h2 ct-form-section__title" *ngIf="data.product_size > 0">Suggested Gift</h2>
+              <h2 style="margin-top: 10px" class="h2 ct-form-section__title" *ngIf="data.product_size > 0">Cadourile care si le doreste</h2>
               <div class="col-sm-12" *ngIf="data.product_size > 3">
                 <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
               </div>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="col-sm-6 col-sm-offset-3">
-            <h2 class="h2 ct-form-section__title">Send Invitation to:</h2>
+            <h2 class="h2 ct-form-section__title">Trimite invitatia la</h2>
             <div class="widget widget_archive">
               <div class="widget-inner">
                   <h2 class="widget-title">Emails</h2>
@@ -55,7 +55,7 @@
           </div>
 
           <div class="col-sm-2 col-sm-offset-4">
-            <button type="button" class="btn btn-motive" (click)="onPrevious()">Previous</button>
+            <button type="button" class="btn btn-motive" (click)="onPrevious()">Inapoi</button>
           </div>
           <div class="col-sm-2">
             <button type="button" [disabled]="data.email <= 0" [ngClass]="{ 'isAdding': isSubmitting == true}" class="btn btn-motive" (click)="onFinish()">Trimite invitatia</button>
@@ -64,10 +64,8 @@
         </div>
           <div *ngSwitchCase="true">
             <div *ngIf="invite_error" class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px; margin-top: 20px">
-              <h2 class="h2 ct-form-section__title">Your Invitation was sent succesfully</h2>
+              <h2 class="h2 ct-form-section__title">Invitatia a fost trimisa cu succes.</h2>
               <a style="margin-top: 10px" type="button" class="btn btn-motive">Share on Facebook</a>
-              <p>or</p>
-              <a style="margin-top: 10px" [routerLink]= "['/invite/create']" type="button" class="btn btn-motive">Create a new Invitation</a>
             </div>
 
             <div *ngIf="!invite_error" class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px; margin-top: 20px">
