@@ -10,14 +10,14 @@ export class GiftService {
   searched_products: Product[] = [];
   search_count: number = 50;
   search_offset: number = 1;
-  search_limit: number = 20;
+  search_limit: number = 3;
 
   //url = 'http://localhost:5000/api';
   url = 'https://partyshop-api.herokuapp.com/api' 
 
   constructor(private http: Http) { }
 
-  getProducts(offset : number = 0, limit: number = 20){
+  getProducts(offset : number = 0, limit: number = 3){
      return this.http.get(`${this.url}/products/?offset=${offset}&limit=${limit}`)
       .map((response: Response)=> response.json())
   }
@@ -36,7 +36,7 @@ export class GiftService {
     )
   }
 
-  getGifts(offset : number = 0, limit: number = 20){
+  getGifts(offset : number = 0, limit: number = 3){
     this.getProducts(offset, limit).subscribe(
       (data) => {
         console.log('products', data);

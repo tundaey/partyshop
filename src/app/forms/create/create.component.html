@@ -1,10 +1,10 @@
 <form #inviteForm="ngForm">
             <div class="col-sm-6 col-sm-offset-3" style="margin-top: 20px">
               <div class="form-group">
-                  <input type="text" placeholder="Name" id="name" [(ngModel)]="data.name" name="name" class="form-control" />                         
+                  <input type="text" placeholder="Numele sarbatoritului" id="name" [(ngModel)]="data.name" name="name" class="form-control" />                         
               </div>
               <div class="form-group">
-                  <input type="text" placeholder="Location" id="name" [(ngModel)]="data.location" name="location" class="form-control" />                         
+                  <input type="text" placeholder="Locatia petrecerii" id="name" [(ngModel)]="data.location" name="location" class="form-control" />                         
               </div>
               <div style="margin-top: 1em" class="col-sm-6 col-xs-6">
                   <label >Select Date and Time</label>
@@ -16,31 +16,35 @@
               
               <!--<my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)" [placeholder]="placeholder"></my-date-picker>-->
               <div class="form-group">
-                <textarea placeholder="Va astept cu drag" [(ngModel)]="data.message" name="message"
-                id="questions-or-comments" rows="8" class="form-control ct-u-margin-top-15"></textarea>
+                <textarea placeholder="Implinesc 5 ani si vreau sa ma distrez cu tine, Te astept cu drag" [(ngModel)]="data.message" name="message"
+                id="questions-or-comments" rows="5" class="form-control ct-u-margin-top-15"></textarea>
                 <label for="questions-or-comments" class="sr-only">Va astept cu drag</label>
               </div>
             </div>
 
             <div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px">
-              <h2 class="h2 ct-form-section__title">Trimite invitatia la:: </h2>
+              <h2 class="h2 ct-form-section__title">Trimite invitatia la: </h2>
               <div class="form-group">
                 <tag-input name="email" [(ngModel)]="data.email" placeholder="Enter Another Email" 
+<<<<<<< HEAD
                   [modelAsStrings]="true" secondaryPlaceholder="Enter Emails">
+=======
+              [modelAsStrings]="true" secondaryPlaceholder="email si apasa Return">
+>>>>>>> f22f727abd0d487927f9bc4e080fd23fe51627ea
                 </tag-input>
               </div>
 
               <div class="form-group">
                 <label for="sms" class="sr-only">SMS Phone Number</label>
                 <tag-input name="phone_number" [(ngModel)]="data.phone_number" placeholder="Enter Another Number"
-                [modelAsStrings]="true" secondaryPlaceholder="Enter Phone Numbers">
+                [modelAsStrings]="true" secondaryPlaceholder="nr telefon">
                   </tag-input>
               </div> 
             
           </div>
 
           <div class="col-sm-6 col-sm-offset-3">
-            <button type="button" class="btn btn-motive" (click)="onNext()">Next</button>
+            <button type="button" class="btn btn-motive" (click)="onNext()">Alege cadoul</button>
           </div>
 
         </form>

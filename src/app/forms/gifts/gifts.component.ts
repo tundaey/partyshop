@@ -22,7 +22,7 @@ addingProduct: boolean = false;
 addToFavorites = 'Adauga la Favorite'
 count: number = 50;
 offset: number = 1;
-limit: number = 20;
+limit: number = 3;
 
 search_count: number = 50;
 search_offset: number = 1;
@@ -132,7 +132,7 @@ openResults : boolean = true;
     .subscribe(
       (data) => {
         this.formData.setProducts(this.products);
-        this.searchedProducts = data.searchedProducts;
+        this.searchedProducts = data.searchedProducts
         this.isRequesting = false;
       }
     )

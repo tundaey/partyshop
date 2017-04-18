@@ -1,6 +1,6 @@
 <div class="col-sm-12">      
           <div style="margin-top: 3em" class="col-sm-2 col-xs-4 col-sm-offset-1">
-            <button type="button" class="btn btn-motive" (click)="onPrevious()">Previous</button>
+            <button type="button" class="btn btn-motive" (click)="onPrevious()">Inapoi</button>
         </div>
 
         <div style="margin-top: 3em" class="col-sm-2 col-xs-4 col-sm-offset-7">
@@ -40,12 +40,12 @@
                                         <button style="margin-top: 2em" *ngIf="product.added == undefined" 
                                           type="button" class="btn btn-motive"
                                           [ngClass]="{ 'isAdding': product.adding == true}"
-                                        (click)="onAddTofavorites(product, $event)">Adauga la Favorite</button>
+                                        (click)="onAddTofavorites(product, $event)">Mi-l doresc</button>
 
                                         <button style="margin-top: 2em" *ngIf="product.added == true" 
                                           type="button" class="btn btn-motive"
                                           [ngClass]="{ 'isAdding': product.adding == true}"
-                                        (click)="removeFromFavorites(product, $event)">Remove from Favorites</button>
+                                        (click)="removeFromFavorites(product, $event)">M-am razgandit</button>
                                     </div>
                                 </div>
                             </figure>
@@ -60,7 +60,7 @@
           <div class="col-sm-4 col-sm-offset-4 col-xs-12">
             <form (ngSubmit)="onSearch(searchForm)" #searchForm="ngForm">
               <div class="input-group" style="margin-top: 20px">
-                <input ngModel name="query" type="text" placeholder="Cauta Jucaril" id="sms" class="form-control" />
+                <input ngModel name="query" type="text" placeholder="Cauta Jucarii" id="sms" class="form-control" />
                 <span class="input-group-btn">
                   <button (click)="onSearch(searchForm)" type="submit" class="btn btn-motive form-control" type="button">
                     <i class="fa fa-search"></i>
@@ -111,12 +111,12 @@
                                         <button style="margin-top: 2em" *ngIf="product.added == undefined" 
                                           type="button" class="btn btn-motive"
                                           [ngClass]="{ 'isAdding': product.adding == true}"
-                                        (click)="onAddTofavorites(product, $event)">Adauga la Favorite</button>
+                                        (click)="onAddTofavorites(product, $event)">Mi-l doresc</button>
 
                                         <button style="margin-top: 2em" *ngIf="product.added == true" 
                                           type="button" class="btn btn-motive"
                                           [ngClass]="{ 'isAdding': product.adding == true}"
-                                        (click)="removeFromFavorites(product, $event)">Remove from Favorites</button>
+                                        (click)="removeFromFavorites(product, $event)">M-am razgandit</button>
                                     </div>
                                 </div>
                             </figure>

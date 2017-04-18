@@ -9,7 +9,7 @@ export class AuthService {
   isLogin: boolean;
   constructor(private fb: FacebookService, private router: Router) {
       fb.init({
-        appId: '1516268071751523',
+        appId: '271586176627972',
         version: 'v2.8'
       });
    }

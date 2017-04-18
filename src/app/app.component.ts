@@ -23,7 +23,7 @@ export class AppComponent implements OnInit,OnDestroy {
 
   constructor(private auth: AuthService, private formService: FormDataService, private router: Router, private fb: FacebookService){
     fb.init({
-        appId: '1516268071751523',
+        appId: '271586176627972',
         version: 'v2.8'
       });
       
