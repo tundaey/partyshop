@@ -1,6 +1,8 @@
 
+.close-mobile-menu{
+    left: -246px
 
-
+}
 .show-previous{
     display: none !important;
 }

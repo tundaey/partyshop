@@ -22,13 +22,13 @@ export class GiftService {
       .map((response: Response)=> response.json())
   }
 
-  searchProducts(query, offset : number = 0, limit: number = 20){
+  searchProducts(query, offset : number = 0, limit: number = 3){
     console.log('query', query)
     return this.http.post(`${this.url}/search`, {query: query, offset: offset, limit: limit})
     .map((response: Response) => response.json())
   }
 
-  getSearchProducts(query, offset : number = 0, limit: number = 20){
+  getSearchProducts(query, offset : number = 0, limit: number = 3){
     this.searchProducts(query, offset, limit).subscribe(
       (data) => {
         this.searched_products = data.searchedProducts

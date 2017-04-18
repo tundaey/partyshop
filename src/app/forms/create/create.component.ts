@@ -11,6 +11,7 @@ import { FormDataService } from '../form.service'
 })
 export class CreateComponent implements OnInit {
   data = {};
+  myDate = new Date();
 
   constructor(private formService: FormDataService, private router: Router) { }
 

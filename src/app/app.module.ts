@@ -23,6 +23,7 @@ import { GiftService } from './forms/gifts/gift.service';
 import { FormWizardModule } from 'angular2-wizard';
 import { TagInputModule } from 'ng2-tag-input';
 import { MyDatePickerModule } from 'mydatepicker';
+import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 
 
 
@@ -63,8 +64,8 @@ import { NavbarComponent } from './forms/navbar/navbar.component';
     FormWizardModule,
     TagInputModule,
     MyDatePickerModule,
+    NguiDatetimePickerModule,
     HttpModule, 
-   
     routes
   ],
   providers: [ProductService, 

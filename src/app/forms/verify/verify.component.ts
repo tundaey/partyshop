@@ -27,6 +27,14 @@ export class VerifyComponent implements OnInit {
     this.router.navigate(['/invite/gifts'])
   }
 
+  removeFromFavorites(product, event){
+    this.formData.removeFromFavorites(product);
+    //product.adding = true;
+    const oldProduct = product
+    product.added = undefined;
+    //this.formData.addToFavorites(oldProduct, product)
+  }
+
   onFinish(){
     console.log('data', this.data);
     this.isSubmitting = true;

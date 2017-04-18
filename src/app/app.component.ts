@@ -15,7 +15,9 @@ import { FacebookLoginResponse, FacebookService, FacebookLoginStatus} from 'ng2-
 export class AppComponent implements OnInit,OnDestroy {
   isAuthenticated: boolean;
   isLoggedIn: Observable<boolean>;
-  showMobileMenu: boolean = true;
+  showMobileMenu = false ;
+
+  
   
   private subscription: Subscription;
 
@@ -44,9 +46,22 @@ export class AppComponent implements OnInit,OnDestroy {
   }
 
   createInvite(){
-    this.showMobileMenu = false;
+    this.showMobileMenu = true;
     //this.router.navigate(['/invite/create'])
   }
+
+  setStyles() {
+        let styles = {
+            // CSS property names
+            // 'left':  this.showMobileMenu ? 0 : -265,   
+            // 'z-index': this.showMobileMenu ? -99999  : 0,  // normal
+            'touch-action': this.showMobileMenu ? 'pan-y' : '',
+            'user-select': this.showMobileMenu ? 'none' : '',
+            '-webkit-user-drag': this.showMobileMenu ? 'none' : '',
+            '-webkit-tap-highlight-color': this.showMobileMenu ? 'rgba(0, 0, 0, 0)': ''
+        };
+        return styles;
+    }
 
   isAuth(){
     return this.isAuthenticated;

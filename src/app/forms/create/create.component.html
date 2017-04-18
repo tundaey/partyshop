@@ -6,7 +6,15 @@
               <div class="form-group">
                   <input type="text" placeholder="Location" id="name" [(ngModel)]="data.location" name="location" class="form-control" />                         
               </div>
-              <my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)" [placeholder]="placeholder"></my-date-picker>
+              <div style="margin-top: 1em" class="col-sm-6 col-xs-6">
+                  <label >Select Date and Time</label>
+              </div>
+              <div style="margin-bottom: 1em" class="col-sm-6 col-xs-6">
+                <input class="form-control"  [(ngModel)]="data.date" name="date"
+               ngui-datetime-picker placeholder="Select Date and Time" />
+              </div>
+              
+              <!--<my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)" [placeholder]="placeholder"></my-date-picker>-->
               <div class="form-group">
                 <textarea placeholder="Va astept cu drag" [(ngModel)]="data.message" name="message"
                 id="questions-or-comments" rows="8" class="form-control ct-u-margin-top-15"></textarea>
@@ -18,9 +26,10 @@
               <h2 class="h2 ct-form-section__title">Trimite invitatia la:: </h2>
               <div class="form-group">
                 <tag-input name="email" [(ngModel)]="data.email" placeholder="Enter Another Email" 
-              [modelAsStrings]="true" secondaryPlaceholder="Enter Emails">
+                  [modelAsStrings]="true" secondaryPlaceholder="Enter Emails">
                 </tag-input>
               </div>
+
               <div class="form-group">
                 <label for="sms" class="sr-only">SMS Phone Number</label>
                 <tag-input name="phone_number" [(ngModel)]="data.phone_number" placeholder="Enter Another Number"

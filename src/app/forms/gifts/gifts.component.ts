@@ -26,7 +26,7 @@ limit: number = 20;
 
 search_count: number = 50;
 search_offset: number = 1;
-search_limit: number = 20;
+search_limit: number = 3;
 
 openResults : boolean = true;
 
@@ -128,7 +128,7 @@ openResults : boolean = true;
     console.log('page changed', offset);
     this.isRequesting = true;
     this.search_offset = offset
-    this.giftService.searchProducts(query, this.search_offset, this.limit)
+    this.giftService.searchProducts(query, this.search_offset, this.search_limit)
     .subscribe(
       (data) => {
         this.formData.setProducts(this.products);
