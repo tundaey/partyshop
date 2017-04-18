@@ -32,21 +32,11 @@
             </div>
           </div>
           <div class="col-sm-6 col-sm-offset-3">
-            <h2 class="h2 ct-form-section__title">Trimite invitatia la</h2>
+            <h2 class="h2 ct-form-section__title">Trimite invitatia la:</h2>
             <div class="widget widget_archive">
               <div class="widget-inner">
-                  <h2 class="widget-title">Emails</h2>
                   <ul >
                       <li *ngFor="let email of data.email"><a href="#"><span class="pull-left">{{email}}</span></a>
-                      </li>
-                  </ul>
-              </div>
-            </div>   
-
-            <div class="widget widget_archive" *ngIf="data.phone_number.length > 0">
-              <div class="widget-inner">
-                  <h2 class="widget-title">SMS</h2>
-                  <ul >
                       <li *ngFor="let number of data.phone_number"><a href="#"><span class="pull-left">{{number}}</span></a>
                       </li>
                   </ul>

@@ -22,11 +22,11 @@ addingProduct: boolean = false;
 addToFavorites = 'Adauga la Favorite'
 count: number = 50;
 offset: number = 1;
-limit: number = 20;
+limit: number = 3;
 
 search_count: number = 50;
 search_offset: number = 1;
-search_limit: number = 20;
+search_limit: number = 3;
 
 openResults : boolean = true;
 
