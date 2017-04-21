@@ -12,7 +12,7 @@
               <h2 style="margin-top: 10px" class="h2 ct-form-section__title" *ngIf="data.product_size > 0">Cadourile care si le doreste</h2>
               <div class="col-sm-12" *ngIf="data.product_size > 3">
 
-                <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
+                <app-paginate *ngIf="data.products.length > 6" [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
               </div>
               
             </div>
@@ -20,7 +20,7 @@
           <div class="col-sm-12" >
             <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
             <div class="item" >
-                <figure *ngFor="let product of data.products" class="ct-party-box" style="height: 150px; width: 150px">
+                <figure *ngFor="let product of products" class="ct-party-box" style="height: 150px; width: 150px">
                     <div class="ct-party-box__inner">
                       <div class="ct-party-box__media">
                             <img src="{{product?.image_original}}" alt="Balloons and Bubbles" />

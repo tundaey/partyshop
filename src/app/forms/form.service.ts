@@ -81,4 +81,8 @@ export class FormDataService {
     setData(data) {
         this.data = data;
     }
+
+    getFavoriteProducts(start, stop){
+        const favorite_products = this.data.products.slice(start, stop)
+    }
 }

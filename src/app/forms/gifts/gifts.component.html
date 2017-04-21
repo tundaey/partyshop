@@ -79,6 +79,7 @@
 
 
         <h2 class="h2" style="padding-top: 3em">.</h2>
+        <div class="col-sm-12"> 
         <div id="faq" role="tablist" aria-multiselectable="true" class="panel-group"  *ngIf="searchResults">
             <div class="panel panel-motive">
                 <div role="tab" id="header-faq-1" class="panel-heading">
@@ -88,7 +89,6 @@
                     <app-paginate [offset]="search_offset" [limit]="limit" [size]="count" (pageChange)="onSearchPageChange($event, searchForm)"></app-paginate>
                     <div class="panel-body">
                      <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
-
                         <div class="item" >
                             <figure *ngFor="let product of searchedProducts" class="ct-party-box" style="margin-bottom: 0px">
                                 <div class="ct-party-box__inner">
@@ -126,6 +126,7 @@
                 </div>
             </div>
 
+        </div>
         </div>
 
 
