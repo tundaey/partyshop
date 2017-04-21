@@ -72,10 +72,12 @@
         </div>
           
 
-          <div *ngIf="isRequesting" class="ct-preloader__inner">
+          <!--<div *ngIf="isRequesting" class="ct-preloader__inner" style="z-index: 999">
             <div class="ct-preloader__spinner"><i class="ct-preloader__1"></i><i class="ct-preloader__2"></i><i class="ct-preloader__3"></i><i class="ct-preloader__4"></i><i class="ct-preloader__5"></i><i class="ct-preloader__6"></i><i class="ct-preloader__7"></i><i class="ct-preloader__8"></i>
             </div>
-          </div>
+          </div>-->
+
+          <div *ngIf="isRequesting" class="loading">Loading&#8230;</div>
 
 
         <h2 class="h2" style="padding-top: 3em">.</h2>
