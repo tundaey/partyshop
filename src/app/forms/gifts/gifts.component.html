@@ -1,4 +1,4 @@
-<div class="col-sm-12">      
+<div class="col-sm-12">  
           <div style="margin-top: 3em" class="col-sm-2 col-xs-4 col-sm-offset-1">
             <button type="button" class="btn btn-motive" (click)="onPrevious()">Inapoi</button>
         </div>
@@ -10,13 +10,19 @@
          <h2 class="h2" style="padding-top: 3em">.</h2>
         <div id="faq2" role="tablist" aria-multiselectable="true" class="panel-group">
             <div class="panel panel-motive">
-                <div role="tab" id="header-faq-2" class="panel-heading">
-                    <h4 class="panel-title"><a style="margin-top: 3em" aria-controls="collapse-faq-2" aria-expanded="true" data-parent="#faq2" data-toggle="collapse" href="#collapse-faq-2" role="button" class="collapse">Cele mai populare cadouri</a></h4>
+                <div role="tab" id="header-faq-5" class="panel-heading">
+                    <h4 class="panel-title"><a (click)="hideResult()" style="margin-top: 3em"
+                     aria-controls="collapse-faq-2" aria-expanded="true"
+                      data-parent="#faq2" data-toggle="collapse" 
+                      href="#collapse-faq-2" role="button" class="panel-collapse show">Cele mai populare cadouri</a></h4>
                 </div>
-                <div id="collapse-faq-2" role="tabpanel" aria-labelledby="header-faq-2" class="panel-collapse collapse">
-                    <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
+                <div *ngIf="openResults" id="collapse-faq-5" role="tabpanel" aria-labelledby="header-faq-5" class="panel-collapse">
+                    <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)">
+              
+                    </app-paginate>
                     <div class="panel-body">
-                     <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
+    
+                        <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
 
                         <div class="item" >
                             <figure *ngFor="let product of products" class="ct-party-box" style="margin-bottom: 0px">
@@ -32,10 +38,7 @@
                                         </div>
                                         <div class="col-xs-6 col-sm-12">
                                           <a  class="btn btn-motive" href="{{product?.affiliate_link}}" target="_blank">{{product.advertiser_name}}</a>
-                                        </div>
-
-                                        <!--<p>{{product.description}}.</p>-->
-                                        
+                                        </div>                                       
                                         
                                         <button style="margin-top: 2em" *ngIf="product.added == undefined" 
                                           type="button" class="btn btn-motive"
@@ -85,9 +88,9 @@
         <div id="faq" role="tablist" aria-multiselectable="true" class="panel-group"  *ngIf="searchResults">
             <div class="panel panel-motive">
                 <div role="tab" id="header-faq-1" class="panel-heading">
-                    <h4 class="panel-title"><a style="margin-top: 3em" aria-controls="collapse-faq-1" aria-expanded="true" data-parent="#faq" data-toggle="collapse" href="#collapse-faq-1" role="button" class="show">Search Results</a></h4>
+                    <h4 class="panel-title"><a (click)="hideSearchResult()" style="margin-top: 3em" aria-controls="collapse-faq-1" aria-expanded="true" data-parent="#faq" data-toggle="collapse" href="#collapse-faq-1" role="button" class="show">Search Results</a></h4>
                 </div>
-                <div id="collapse-faq-1" role="tabpanel" aria-labelledby="header-faq-1" class="panel-collapse collapse.show">
+                <div *ngIf="openSearchResults" id="collapse-faq-1" role="tabpanel" aria-labelledby="header-faq-1" class="panel-collapse collapse.show">
                     <app-paginate [offset]="search_offset" [limit]="limit" [size]="count" (pageChange)="onSearchPageChange($event, searchForm)"></app-paginate>
                     <div class="panel-body">
                      <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">

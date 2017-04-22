@@ -29,6 +29,7 @@ search_offset: number = 1;
 search_limit: number = 3;
 
 openResults : boolean = true;
+openSearchResults : boolean = true;
 
   constructor(
     private giftService: GiftService, 
@@ -87,6 +88,14 @@ openResults : boolean = true;
     this.data.product_size = this.data.products.length
     this.formData.setData(this.data)
     this.router.navigate(['/invite/verify'])
+  }
+
+  hideResult(){
+    this.openResults = !this.openResults;
+  }
+
+  hideSearchResult(){
+    this.openSearchResults = !this.openSearchResults;
   }
 
   onPrevious(){
