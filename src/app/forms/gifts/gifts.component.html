@@ -91,7 +91,7 @@
                     <h4 class="panel-title"><a (click)="hideSearchResult()" style="margin-top: 3em" aria-controls="collapse-faq-1" aria-expanded="true" data-parent="#faq" data-toggle="collapse" href="#collapse-faq-1" role="button" class="show">Search Results</a></h4>
                 </div>
                 <div *ngIf="openSearchResults" id="collapse-faq-1" role="tabpanel" aria-labelledby="header-faq-1" class="panel-collapse collapse.show">
-                    <app-paginate [offset]="search_offset" [limit]="limit" [size]="count" (pageChange)="onSearchPageChange($event, searchForm)"></app-paginate>
+                    <app-paginate *ngIf="searchedProducts.length > 0" [offset]="search_offset" [limit]="limit" [size]="count" (pageChange)="onSearchPageChange($event, searchForm)"></app-paginate>
                     <div class="panel-body">
                      <div id="slick-themes" data-items="4" data-items-sm="4" data-items-lg="4" data-items-xl="4" class="ct-slick text-center">
                         <div class="item" >
