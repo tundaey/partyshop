@@ -7,12 +7,9 @@
               <p>in data de {{data.date | date: 'fullDate'}} </p>
               <p>{{data.message}}</p>
 
-              <h2 style="margin-top: 10px" class="h2 ct-form-section__title" *ngIf="data.product_size > 0">Suggested Gift</h2>
-              <div class="col-sm-12" *ngIf="data.product_size > 6">
-              <h2 style="margin-top: 10px" class="h2 ct-form-section__title" *ngIf="data.product_size > 0">Cadourile care si le doreste</h2>
-              <div class="col-sm-12" *ngIf="data.product_size > 3">
-
-                <app-paginate *ngIf="data.products.length > 6" [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-paginate>
+              <div class="col-sm-12" *ngIf="data.product_size > 2">
+                <h2 style="margin-top: 10px" class="h2 ct-form-section__title" *ngIf="data.product_size > 0">Cadourile care si le doreste</h2>
+                <app-paginate [offset]="offset" [limit]="limit" [size]="count" (pageChange)="change($event)"></app-paginate>
               </div>
               
             </div>

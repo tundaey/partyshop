@@ -23,7 +23,8 @@ export class AppComponent implements OnInit,OnDestroy {
 
   constructor(private auth: AuthService, private formService: FormDataService, private router: Router, private fb: FacebookService){
     fb.init({
-        appId: '271586176627972',
+        //appId: '271586176627972',
+        appId: '1516268071751523',
         version: 'v2.8'
       });
       
@@ -86,11 +87,14 @@ export class AppComponent implements OnInit,OnDestroy {
          this.auth.getProfile().then(
           (data) => {
             console.log('profile data', data)
-            localStorage.setItem('name', data.name)
-            localStorage.setItem('gender', data.gender)
-            localStorage.setItem('picture', data.picture.data.url)
-            this.auth.isLogin = true;
-            this.router.navigateByUrl('/profile')
+            this.auth.saveUser(data).subscribe((user) => {
+              console.log('user', user)
+              if(user.status){
+                this.auth.isLogin = true;
+                this.router.navigateByUrl('/profile')
+              }
+            })
+            
           }
         )
         

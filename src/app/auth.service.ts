@@ -1,13 +1,17 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable, Subject } from 'rxjs'
+import { Http, Response } from '@angular/http'
 import {Router } from '@angular/router'
 import { FacebookLoginResponse, FacebookService, FacebookLoginStatus} from 'ng2-facebook-sdk'
 
 @Injectable()
 export class AuthService {
+
+  //url = 'http://localhost:5000/api';
+  url = 'https://partyshop-api.herokuapp.com/api' 
   
   isLogin: boolean;
-  constructor(private fb: FacebookService, private router: Router) {
+  constructor(private fb: FacebookService, private router: Router, private http: Http) {
       fb.init({
         appId: '271586176627972',
         version: 'v2.8'
@@ -18,8 +22,13 @@ export class AuthService {
      const token = localStorage.getItem('token')
      const user_id = localStorage.getItem('user_id')
      console.log('user id', user_id);
-     return this.fb.api('/me',"get",{ access_token: token, fields: 'id,name,gender,picture' })
-      
+     return this.fb.api('/me',"get",{ access_token: token, fields: 'id,name,gender,picture,email' })   
+   }
+
+   saveUser(user){
+      console.log('profile', user)
+    return this.http.post(`${this.url}/user`, {user: user})
+    .map((response: Response) => response.json())
    }
 
    isAuthenticated(): Observable<boolean>{

@@ -22,7 +22,7 @@ export class PaginateComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.getPages(this.offset, this.limit, this.size);
-    console.log('size', this.size)
+    console.log('size', this.size);
   }
 
   ngOnChanges(){

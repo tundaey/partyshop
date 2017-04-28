@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { FormDataService } from '../form.service';
-import { InviteService } from '../../invite/invite.service'
+import { InviteService } from '../../invite/invite.service';
+
+import { Product } from '../../product/product';
 
 @Component({
   selector: 'app-verify',
@@ -14,16 +16,22 @@ export class VerifyComponent implements OnInit {
   isCompleted: boolean = false;
   invite_error: boolean = false;
   isSubmitting: boolean = false;
-  limit = 6;
-  offset = 1;
-  count = 10
-  products: any;
+  count: number = 50;
+  offset: number = 1;
+  limit: number = 3;
+  //products: any;
+  products: Product[] = []
   data: any;
 
   constructor(private formData: FormDataService, private inviteService: InviteService, private router: Router) {
     this.data = formData.getData();
     this.products = this.data.products.slice(0,6);
     this.count = this.data.products.length;
+    console.log('verify count', this.count)
+   }
+
+   change(offset){
+     console.log('next page')
    }
 
   ngOnInit() {
@@ -62,11 +70,6 @@ export class VerifyComponent implements OnInit {
         console.log('error', error)
       }
     )
-  }
-
-  onPageChange(offset){
-    console.log('verify next page', offset);
-
   }
 
 }

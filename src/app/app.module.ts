@@ -19,6 +19,7 @@ import { FacebookService } from 'ng2-facebook-sdk'
 import { InviteService } from './invite/invite.service';
 import { FormDataService } from './forms/form.service';
 import { GiftService } from './forms/gifts/gift.service';
+import { ProfileService } from './profile/profile.service';
 
 import { FormWizardModule } from 'angular2-wizard';
 import { TagInputModule } from 'ng2-tag-input';
@@ -72,6 +73,7 @@ import { NavbarComponent } from './forms/navbar/navbar.component';
               FacebookService,
               GiftService,
               AuthService, 
+              ProfileService,
               AuthGuard, 
               InviteService, 
               FormDataService],
